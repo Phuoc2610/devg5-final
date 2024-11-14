@@ -1,13 +1,9 @@
-import { FaBeer } from "react-icons/fa";
 
-function Login() {
+const Login = () => {
     return (
-        <>
-            <h3>
-                Lets go for a <FaBeer />
-            </h3>
+        <div>
 
-        </>
+        </div>
     );
 }
 
