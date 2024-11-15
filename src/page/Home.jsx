@@ -6,6 +6,7 @@ import Blog from '../components/Blog';
 import Products from '../components/Products';
 import AOS from 'aos';
 import "aos/dist/aos.css"
+import TruckButton from '../components/Shared/Button';
 const Home = ()=> {
     React.useEffect(()=>{
         AOS.init(
@@ -25,6 +26,7 @@ const Home = ()=> {
             <Services/>
             <Products/>
             <Blog/>
+            <TruckButton/>
         </div>
     );
 }
