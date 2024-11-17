@@ -1,7 +1,7 @@
 import Slider from "react-slick";
-import Image1 from "../assets/hero/headphone.png"
-import Image2 from "../assets/category/vr.png"
-import Image3 from "../assets/category/macbook.png"
+import Image1 from "../../assets/hero/headphone.png"
+import Image2 from "../../assets/category/vr.png"
+import Image3 from "../../assets/category/macbook.png"
 const CarouselData = [
     {
         id: 1,
@@ -35,9 +35,9 @@ const Carousel = () => {
         slidesToScroll: 1,
     };
     return (
-            <div className="container">
+            <div className="w-[90%] mx-auto">
                 <div className="carousel-bg-color overflow-hidden rounded-3xl min-h-[550px] sm:min-h-[650px] flex justify-center items-center">
-                    <div className="container pb-8 sm:pb-0">
+                    <div className="w-full pb-8 sm:pb-0">
                         <Slider {...settings}>
                             {CarouselData.map((data) => (
                                 <div key={data.id}>

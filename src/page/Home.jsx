@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from "../components/Narbar";
-import Carousel from "../components/Carousel";
-import Services from '../components/Services';
-import Blog from '../components/Blog';
-import Products from '../components/Products';
+import Navbar from "../components/navbar/Narbar";
+import Carousel from "../components/carousel/Carousel";
+import Services from '../components/support/Services';
+import Blog from '../components/blog/Blog';
+import Products from '../components/products/Products';
 import AOS from 'aos';
 import "aos/dist/aos.css"
-import TruckButton from '../components/Shared/Button';
+import Sidebar from '../components/sidebar/Sidebar';
+import Footer from '../components/footer/Footer';
 const Home = ()=> {
     React.useEffect(()=>{
         AOS.init(
@@ -20,13 +21,14 @@ const Home = ()=> {
         AOS.refresh()
     },[])
     return (
-        <div className=" w-[90%] mx-auto bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
+        <div className="w-full bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
             <Navbar/>
             <Carousel/>
             <Services/>
             <Products/>
             <Blog/>
-            <TruckButton/>
+            <Footer/>
+            <Sidebar/>
         </div>
     );
 }

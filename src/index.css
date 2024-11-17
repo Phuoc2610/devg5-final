@@ -17,4 +17,7 @@
   .btn-cate {
     @apply text-white p-2 rounded-lg w-[20%] bg-[#233a95] hover:bg-[#232b95];
   }
+  .item-sidebar{
+    @apply py-1 text-gray-400 hover:text-white duration-500;
+  }
 }

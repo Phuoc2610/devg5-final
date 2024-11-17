@@ -30,8 +30,8 @@ const ServiceData = [
 
 const Services = () => {
     return (
-        <div>
-            <div className="container my-14 md:my-20">
+        <div className="w-[90%] mx-auto">
+            <div className="w-full my-14 md:my-20">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 gap-y-8">
                     {ServiceData.map((data) => (
                         <div key={data.id} className='flex flex-col items-start sm:flex-row gap-4'>

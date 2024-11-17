@@ -1,6 +1,5 @@
 const Navbar = () => {
     return (
-        <>
             <div className="navbar">
                 <div className="flex items-center justify-around">
                     <a href="#" className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">DevG5</a>
@@ -22,7 +21,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </>
     );
 }
 

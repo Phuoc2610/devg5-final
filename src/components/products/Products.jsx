@@ -139,14 +139,15 @@
 
 // export default Products
 
-import React, { useState } from 'react';
-import Image1 from "../assets/category/earphone.png";
-import Image2 from "../assets/category/gaming.png";
-import Image3 from "../assets/category/macbook.png";
-import Image4 from "../assets/category/smartwatch2-removebg-preview.png";
-import Image5 from "../assets/category/speaker.png";
-import Image6 from "../assets/category/vr.png";
-import Image7 from "../assets/category/watch.png";
+import React, { useState, useEffect } from 'react';
+import Image1 from "../../assets/category/earphone.png";
+import Image2 from "../../assets/category/gaming.png";
+import Image3 from "../../assets/category/macbook.png";
+import Image4 from "../../assets/category/smartwatch2-removebg-preview.png";
+import Image5 from "../../assets/category/speaker.png";
+import Image6 from "../../assets/category/vr.png";
+import Image7 from "../../assets/category/watch.png";
+import Pagination from './Pagination';
 
 const ProductsData = [
     {
@@ -297,23 +298,15 @@ const ProductsData = [
 
 const Products = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
+    const itemsPerPage = 4;
 
-    // Get current products to show based on current page
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentProducts = ProductsData.slice(indexOfFirstItem, indexOfLastItem);
-
     const totalPages = Math.ceil(ProductsData.length / itemsPerPage);
-
-    // Handle page change
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
-
     return (
-        <div>
-            <div>
+        <div className="w-[90%] mx-auto">
+            <div className="w-full">
                 <div className="text-center my-10 max-w-[600px] mx-auto space-y-2">
                     <h1 className="text-3xl font-bold lg:text-4xl">Our Products</h1>
                     <p className="text-xs text-gray-400">Explore Our Products</p>
@@ -359,44 +352,49 @@ const Products = () => {
                         </div>
                     ))}
                 </div>
-
                 {/* Pagination */}
-                <nav className="grid place-items-center my-5" aria-label="Page navigation example">
-                    <ul className="flex items-center -space-x-px h-8 text-sm">
-                        <li>
-                            <a
-                                className="flex items-center justify-center px-3 h-8 ms-0 leading-tight cursor-pointer text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : currentPage)}>
-                                <span className="sr-only">Previous</span>
-                                <svg className="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                                </svg>
-                            </a>
-                        </li>
-                        {[...Array(totalPages)].map((_, index) => (
-                            <li key={index}>
-                                <a
-                                    className={`flex items-center justify-center px-3 h-8 leading-tight cursor-pointer text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${currentPage === index + 1 ? 'bg-blue-50 text-blue-600' : ''}`}
-                                    onClick={() => handlePageChange(index + 1)}>
-                                    {index + 1}
-                                </a>
-                            </li>
-                        ))}
-                        <li>
-                            <a
-                                className="flex items-center justify-center px-3 h-8 leading-tight cursor-pointer text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                onClick={() => handlePageChange(currentPage < totalPages ? currentPage + 1 : currentPage)}>
-                                <span className="sr-only">Next</span>
-                                <svg className="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                />
             </div>
         </div>
     );
 }
 
 export default Products;
+
+{/* <nav className="grid place-items-center my-5" aria-label="Page navigation example">
+<ul className="flex items-center -space-x-px h-8 text-sm">
+    <li>
+        <a
+            className="flex items-center justify-center px-3 h-8 ms-0 leading-tight cursor-pointer text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : currentPage)}>
+            <span className="sr-only">Previous</span>
+            <svg className="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+            </svg>
+        </a>
+    </li>
+    {[...Array(totalPages)].map((_, index) => (
+        <li key={index}>
+            <a
+                className={`flex items-center justify-center px-3 h-8 leading-tight cursor-pointer text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${currentPage === index + 1 ? 'bg-blue-50 text-blue-600' : ''}`}
+                onClick={() => handlePageChange(index + 1)}>
+                {index + 1}
+            </a>
+        </li>
+    ))}
+    <li>
+        <a
+            className="flex items-center justify-center px-3 h-8 leading-tight cursor-pointer text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            onClick={() => handlePageChange(currentPage < totalPages ? currentPage + 1 : currentPage)}>
+            <span className="sr-only">Next</span>
+            <svg className="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+            </svg>
+        </a>
+    </li>
+</ul>
+</nav> */}
