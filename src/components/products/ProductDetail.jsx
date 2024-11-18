@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import Image2 from "../../assets/product/p-2.jpg";
-import Image3 from "../../assets/product/macbook-pro-2021-007_4.webp";
 
 const ProductDetail = () => {
   const [activeIndex, setActiveIndex] = useState(0);

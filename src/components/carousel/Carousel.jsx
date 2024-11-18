@@ -1,14 +1,14 @@
 import Slider from "react-slick";
-import Image1 from "../../assets/hero/headphone.png"
+import Image3 from "../../assets/hero/headphone.png"
 import Image2 from "../../assets/category/vr.png"
-import Image3 from "../../assets/category/macbook.png"
+import Image1 from "../../assets/category/macbook.png"
 const CarouselData = [
     {
         id: 1,
         img: Image1,
         subtitle: "Beats Solo",
-        title: "wireless",
-        title2: "Headphone1",
+        title: "Branded",
+        title2: "Laptop",
     },
     {
         id: 2,
@@ -18,12 +18,12 @@ const CarouselData = [
         title2: "Virtial",
     },
     {
-        id: 1,
+        id: 3,
         img: Image3,
-        subtitle: "Beats Solo3",
-        title: "Branded",
-        title2: "Laptop",
-    }
+        subtitle: "Beats Solo",
+        title: "wireless",
+        title2: "Headphone1",
+    },
 ]
 const Carousel = () => {
 

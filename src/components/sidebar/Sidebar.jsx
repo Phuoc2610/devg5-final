@@ -37,6 +37,13 @@ const Sidebar = () => {
             behavior: 'smooth',
         });
     };
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <div>
             <div className="fixed grid place-items-center right-0 top-60 text-white bg-gray-900 dark:bg-gray-800 px-4 py-2 rounded-lg">
@@ -53,14 +60,12 @@ const Sidebar = () => {
                 </div>
                 <div className="item-sidebar" >
                     <Link className="text-lg" to="">
-                        <IoMdChatboxes className="text-3xl ml-1" />
-                        Chat
+                        <IoMdChatboxes className="text-3xl" />
                     </Link>
                 </div>
                 <div className="item-sidebar">
                     <Link className="text-lg" to="">
-                        <MdOutlineShoppingCart className="text-3xl " />
-                        Buy
+                        <MdOutlineShoppingCart className="text-3xl" />
                     </Link>
                 </div>
             </div>

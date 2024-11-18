@@ -18,6 +18,26 @@
     @apply text-white p-2 rounded-lg w-[20%] bg-[#233a95] hover:bg-[#232b95];
   }
   .item-sidebar{
-    @apply py-1 text-gray-400 hover:text-white duration-500;
+    @apply py-[5px] text-gray-400 hover:text-white duration-500;
+  }
+
+  .item-footer {
+    @apply my-2 cursor-pointer text-gray-600 dark:text-gray-400 dark:hover:text-white hover:text-black duration-300;
+  }
+
+  .icon-footer {
+    @apply text-3xl mx-2 cursor-pointer text-black dark:text-white dark:hover:text-[#f42c37] hover:text-[#f42c37] duration-300  ;
+  }
+
+  .title-footer {
+    @apply text-xl font-bold sm:text-left mb-3;
+  }
+
+  .contact-footer {
+    @apply text-4xl  px-1 rounded-full;
+  }
+
+  .text-footer {
+    @apply pl-2 mt-1 font-normal;
   }
 }
