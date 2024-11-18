@@ -147,7 +147,8 @@ import Image4 from "../../assets/category/smartwatch2-removebg-preview.png";
 import Image5 from "../../assets/category/speaker.png";
 import Image6 from "../../assets/category/vr.png";
 import Image7 from "../../assets/category/watch.png";
-import Pagination from './Pagination';
+import Pagination from '../pagination/Pagination';
+import { Link } from 'react-router-dom';
 
 const ProductsData = [
     {
@@ -318,9 +319,12 @@ const Products = () => {
                             data-aos="fade-up"
                             data-aos-delay="200"
                             key={data.id}>
-                            <div className="relative">
-                                <img src={data.img} alt="" className="h-[180px] w-[180px] object-cover rounded-md bg-transparent" />
-                            </div>
+                            <Link to="/product">
+                                <div className="relative">
+                                    <img src={data.img} alt="" className="h-[180px] w-[180px] object-cover rounded-md bg-transparent" />
+                                </div>
+                            </Link>
+
                             <h2 className="font-semibold text-lg">{data.title}</h2>
                             <div className="flex items-center py-1">
                                 <h2 className="px-2">Color: </h2>
@@ -350,6 +354,7 @@ const Products = () => {
                             </div>
                             <button className="bg-blue-500 px-4 py-2 rounded-lg my-1">Add to card</button>
                         </div>
+
                     ))}
                 </div>
                 {/* Pagination */}
