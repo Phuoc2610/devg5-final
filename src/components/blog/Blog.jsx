@@ -33,7 +33,6 @@ const Blog = () => {
             <div className="w-full my-10">
                 <div className="text-center mb-10 max-w-[600px] mx-auto space-y-2">
                     <h1 className="text-3xl font-bold lg:text-4xl"> Recent News</h1>
-                    <p className="text-xs text-gray-400">Explore Our Blogs</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gap-y-8 sm:gap-4 md:gap-7">
                     {

@@ -14,8 +14,11 @@
   .carousel-bg-color{
     @apply bg-gradient-to-r from-gray-300/80 to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white;
   }
-  .btn-cate {
-    @apply text-white p-2 rounded-lg w-[20%] bg-[#233a95] hover:bg-[#232b95];
+  .btn-add {
+    @apply bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg;
+  }
+  .item-navbar {
+    @apply inline-block md:px-1 lg:px-2 font-semibold text-gray-500 hover:text-black dark:hover:text-white duration-200;
   }
   .item-sidebar{
     @apply py-[5px] text-gray-400 hover:text-white duration-500;
