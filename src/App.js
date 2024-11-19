@@ -4,6 +4,7 @@ import Home from './page/Home';
 import Login from './page/Login';
 import AOS from 'aos';
 import ProductDetail from './components/products/ProductDetail';
+import FilterProduct from './page/products/FilterProduct';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<ProductDetail />} />
+          <Route path="/productFilter" element={<FilterProduct />} />
         </Routes>
       </Router>
     </div>

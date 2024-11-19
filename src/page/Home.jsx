@@ -8,8 +8,8 @@ import AOS from 'aos';
 import "aos/dist/aos.css"
 import Sidebar from '../components/sidebar/Sidebar';
 import Footer from '../components/footer/Footer';
-const Home = ()=> {
-    React.useEffect(()=>{
+const Home = () => {
+    React.useEffect(() => {
         AOS.init(
             {
                 duration: 800,
@@ -19,16 +19,18 @@ const Home = ()=> {
             }
         );
         AOS.refresh()
-    },[])
+    }, [])
     return (
         <div className="w-full bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
-            <Navbar/>
-            <Carousel/>
-            <Services/>
-            <Products/>
-            <Blog/>
-            <Footer/>
-            <Sidebar/>
+            <div className="fixed z-20 top-0 w-full">
+                <Navbar />
+            </div>
+            <Carousel />
+            <Services />
+            <Products />
+            <Blog />
+            <Footer />
+            <Sidebar />
         </div>
     );
 }

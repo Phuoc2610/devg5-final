@@ -11,7 +11,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="navbar w-full fixed z-20 top-0 bg-white dark:bg-gray-900 shadow-md">
+        <div className="navbar w-full z-20 bg-white dark:bg-gray-900 ">
             <div className="flex items-center justify-between w-[90%] mx-auto px-4 py-3">
                 <a href="#" className=" text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">
                     DevSHOP
@@ -36,17 +36,17 @@ const Navbar = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="/#shop" className="item-navbar">
+                        <Link to="/productFilter" className="item-navbar">
                             Product
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/#about" className="item-navbar">
+                        <a href="/#blog" className="item-navbar">
                             Blog
                         </a>
                     </li>
                     <li>
-                        <a href="/#about" className="item-navbar">
+                        <a href="/#contact" className="item-navbar">
                             Contact
                         </a>
                     </li>
