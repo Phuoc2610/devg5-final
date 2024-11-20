@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import User from '../../page/user/User';
+import User from '../../page/profile/User';
 import Search from '../search/Search';
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <div className="navbar w-full z-20 bg-white dark:bg-gray-900 ">
             <div className="flex items-center justify-between w-[90%] mx-auto px-4 py-3">
-                <a href="#" className=" text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">
+                <a href="" className=" text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">
                     DevSHOP
                 </a>
                 <button
@@ -31,7 +31,7 @@ const Navbar = () => {
                 </button>
                 <ul className="hidden md:flex items-center lg:gap-2">
                     <li>
-                        <a href="/#" className="item-navbar">
+                        <a href="/" className="item-navbar">
                             Home
                         </a>
                     </li>
@@ -41,14 +41,14 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <a href="/#blog" className="item-navbar">
-                            Blog
-                        </a>
+                    <Link to="/blog" className="item-navbar">
+                            Contact
+                        </Link>
                     </li>
                     <li>
-                        <a href="/#contact" className="item-navbar">
+                        <Link to="/contact" className="item-navbar">
                             Contact
-                        </a>
+                        </Link>
                     </li>
                     <Search />
 

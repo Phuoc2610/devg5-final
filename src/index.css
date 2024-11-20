@@ -6,7 +6,9 @@
   .clip-polygon {
     clip-path: polygon(0 0, 100% 150%, 110% 0%);
   }
-  
+  .shadown-left {
+    box-Shadow: -5px 0px 10px rgba(0, 0, 0, 0.1);
+  }
 
 }
 
