@@ -31,9 +31,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />}>
-              <Route path="" element={<DashboardAdmin />} />
-              <Route path="category" element={<CategoryManage />} />
-              <Route path="user" element={<UserManage />} />
+            <Route path="" element={<DashboardAdmin />} />
+            <Route path="category" element={<CategoryManage />} />
+            <Route path="user" element={<UserManage />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<ProductDetail />} />

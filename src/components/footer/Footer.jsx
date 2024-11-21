@@ -4,7 +4,7 @@ import { MdOutlineEmail, MdLocalPhone } from "react-icons/md";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
-    <div className="container-fluid py-4 dark:bg-gray-950 dark:text-white grid text-center justify-items-center gap-6 md:grid-cols-2 md:gap-4 xl:grid-cols-4">
+    <div className="w-[80%] mx-auto py-4 dark:bg-gray-950 dark:text-white grid text-center justify-items-center gap-6 md:grid-cols-2 md:gap-4 xl:grid-cols-4">
       <div id="contact ">
         <h3 className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">DEVSHOP</h3>
         <p className="text-gray-600 dark:text-white/70  pt-3">We are dedicated to the safety of our guests

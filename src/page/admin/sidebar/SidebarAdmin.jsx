@@ -4,33 +4,44 @@ import { MdOutlineHome, MdLogout } from "react-icons/md";
 import { PiUserListBold } from "react-icons/pi";
 import { BiCategory } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import Image from "../../../assets/robot-assistant.png"
 const SidebarAdmin = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate()
+    const [activeItem, setActiveItem] = useState(""); // Trạng thái lưu mục active
+    const navigate = useNavigate();
+
+    const menuItems = [
+        { name: "Dashboard", icon: <MdOutlineHome size={25} />, path: "" },
+        { name: "Category", icon: <BiCategory size={25} />, path: "category" },
+        { name: "User", icon: <PiUserListBold size={25} />, path: "user" },
+        { name: "Logout", icon: <MdLogout size={25} />, path: "logout" },
+    ];
+
+    const handleClick = (path) => {
+        setActiveItem(path); // Cập nhật trạng thái mục được chọn
+        navigate(path); // Điều hướng đến đường dẫn tương ứng
+    };
 
     return (
         <div className="flex">
             {/* Sidebar */}
             <div
                 className={`bg-white ${isOpen ? "w-64" : "w-20"
-                    } h-screen transition-all duration-300 relative shadow-md`}
+                    }  transition-all duration-300 relative shadow-md`}
             >
                 {/* Logo */}
                 <div className="flex items-center p-4">
-                    <div className="bg-gray-400 rounded-md w-10 h-10 flex items-center justify-center text-xl font-bold">
-                        CL
-                    </div>
+                    <img src={Image} alt="" className="w-10 h-10" />
                     {isOpen && (
                         <div className="ml-4">
-                            <h1 className="text-lg font-semibold">Codinglab</h1>
-                            <p className="text-sm">Web developer</p>
+                            <h1 className="text-xl font-semibold">DevShop</h1>
                         </div>
                     )}
                 </div>
 
                 {/* Toggle Button */}
                 <button
-                    className="absolute top-4 -right-4 bg-gray-400 text-black rounded-full p-2 shadow-md"
+                    className="absolute top-5 -right-4 bg-gray-300 text-black rounded-full p-2 shadow-md"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <FaChevronLeft /> : <FaChevronRight />}
@@ -38,21 +49,88 @@ const SidebarAdmin = () => {
 
                 {/* Search Box */}
                 <div
-                    className={`flex items-center mt-4 rounded-md p-2 ${isOpen ? "mx-4 bg-gray-200" : "mx-2"
+                    className={`flex items-center mt-4 rounded-md px-2 ${isOpen ? " mx-4 py-2 bg-gray-200" : "mx-2"
                         }`}
                 >
-                    <FaSearch />
+                    <FaSearch className="flex items-center justify-center w-10"/>
                     {isOpen && (
                         <input
                             type="text"
                             placeholder="Search..."
-                            className="bg-transparent border-none outline-none ml-2 text-black"
+                            className="bg-transparent border-none outline-none ml-2 text-black focus:ring-0"
                         />
                     )}
                 </div>
 
                 {/* Menu Items */}
                 <ul className="mt-6">
+                    {menuItems.map((item, index) => (
+                        <li
+                            key={index}
+                            className={`flex items-center p-4 cursor-pointer  ${activeItem === item.path ? "bg-gray-300" : "hover:bg-gray-200"
+                                }`}
+                            onClick={() => handleClick(item.path)}
+                        >
+                            <div className="flex items-center justify-center w-10">{item.icon}</div>
+                            {isOpen && <span className="ml-4">{item.name}</span>}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+}
+
+export default SidebarAdmin
+
+// import React, { useState } from "react";
+// import { MdOutlineHome, MdLogout } from "react-icons/md";
+// import { PiUserListBold } from "react-icons/pi";
+// import { BiCategory } from "react-icons/bi";
+// import { useNavigate } from "react-router-dom";
+
+// const SidebarAdmin = () => {
+//   const [activeItem, setActiveItem] = useState(""); // Trạng thái lưu mục active
+//   const navigate = useNavigate();
+
+//   const menuItems = [
+//     { name: "Dashboard", icon: <MdOutlineHome size={25} />, path: "" },
+//     { name: "Category", icon: <BiCategory size={25} />, path: "category" },
+//     { name: "User", icon: <PiUserListBold size={25} />, path: "user" },
+//     { name: "Logout", icon: <MdLogout size={25} />, path: "logout" },
+//   ];
+
+//   const handleClick = (path) => {
+//     setActiveItem(path); // Cập nhật trạng thái mục được chọn
+//     navigate(path); // Điều hướng đến đường dẫn tương ứng
+//   };
+
+//   return (
+//     <div className="flex">
+//       {/* Sidebar */}
+//       <div className={`bg-white w-64 transition-all duration-300 shadow-md`}>
+//         <ul className="mt-6">
+//           {menuItems.map((item, index) => (
+//             <li
+//               key={index}
+//               className={`flex items-center p-4 cursor-pointer rounded-md ${
+//                 activeItem === item.path ? "bg-gray-300" : "hover:bg-gray-200"
+//               }`}
+//               onClick={() => handleClick(item.path)}
+//             >
+//               <div>{item.icon}</div>
+//               <span className="ml-4">{item.name}</span>
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SidebarAdmin;
+
+{/* <ul className="mt-6">
                     <li className="flex items-center p-4 hover:bg-gray-300 cursor-pointer" onClick={() => { navigate('') }}>
                         <MdOutlineHome size={25} />
                         {isOpen && <span className="ml-4">Dashboard</span>}
@@ -69,10 +147,4 @@ const SidebarAdmin = () => {
                         <MdLogout size={25} />
                         {isOpen && <span className="ml-4">Logout</span>}
                     </li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-
-export default SidebarAdmin
+                </ul> */}
