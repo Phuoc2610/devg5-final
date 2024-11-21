@@ -99,7 +99,7 @@ const SalesDashboard = () => {
   ];
 
   return (
-    <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800">
+    <div className="col-span-2 w-[810px] bg-white rounded-lg shadow dark:bg-gray-800">
       <div className="flex justify-between p-4 md:p-6 pb-0 md:pb-0">
         <div>
           <h5 className="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">
@@ -129,55 +129,9 @@ const SalesDashboard = () => {
         </div>
       </div>
       <div id="labels-chart" className="px-2.5">
-        <ReactApexChart options={options} series={series} type="area" height={320} />
+        <ReactApexChart options={options} series={series} type="area" height={380} width={800} />
       </div>
-      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-5 p-4 md:p-6 pt-0 md:pt-0">
-        <div className="flex justify-between items-center pt-5">
-          <button
-            id="dropdownDefaultButton"
-            className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
-            type="button"
-          >
-            Last 7 days
-            <svg
-              className="w-2.5 m-2.5 ms-1.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-          </button>
-          <a
-            href="#"
-            className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2"
-          >
-            Sales Report
-            <svg
-              className="w-2.5 h-2.5 ms-1.5 rtl:rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 9 4-4-4-4"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
+      
     </div>
   );
 };

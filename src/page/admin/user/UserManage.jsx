@@ -49,7 +49,7 @@ const UserManage = () => {
       name: 'Action',
       center: true,
       cell: (row) => (
-        <div>
+        <div className="max-md:w-80 max-md:flex">
           <button
             className="bg-green-500 text-white px-2 py-1 rounded mr-2"
             onClick={() => handleDetails(row)}
@@ -244,54 +244,21 @@ const UserManage = () => {
     }
   };
   return (
-    // <div className="overflow-hidden">
-    //   <h1 className="grid place-items-center text-4xl my-4">Manage User</h1>
-    //   <div className="w-[90%] mx-auto ">
-    //   <div className="overflow-y-auto">
-
-    //     <DataTable
-    //       columns={columns}
-    //       data={data}
-    //       selectableRows
-    //       fixedHeader
-    //       pagination
-    //     >
-    //     </DataTable>
-    //     </div>
-    //   </div>
-
-    // </div>
-    // <div>
-    //   <h1 className="grid place-items-center text-4xl my-4">Manage User</h1>
-    //   <div className="w-[90%] mx-auto">
-    //     {/* Wrapper với chiều cao cố định và scroll nội dung bảng */}
-    //     <div className="overflow-y-auto h-[400px] border border-gray-300 rounded-md shadow-sm">
-    //       <DataTable
-    //         columns={columns}
-    //         data={data}
-    //         selectableRows
-    //         fixedHeader 
-    //         pagination
-    //         paginationPosition="bottom"
-    //       />
-    //     </div>
-    //   </div>
-    // </div>
-<div>
-  <h1 className="grid place-items-center text-4xl my-4">Manage User</h1>
-  <div className="w-[90%] mx-auto border border-gray-300 rounded-md shadow-md">
-    <div className="overflow-hidden">
-      <DataTable
-        columns={columns}
-        data={data}
-        fixedHeader
-        fixedHeaderScrollHeight="600px" 
-        pagination
-        paginationPosition="bottom" 
-      />
+    <div className="h-screen">
+      <h1 className="grid place-items-center text-4xl py-4">Manage User</h1>
+      <div className="w-[90%] mx-auto border border-gray-300 rounded-md shadow-md">
+        <div className="overflow-hidden">
+          <DataTable
+            columns={columns}
+            data={data}
+            fixedHeader
+            fixedHeaderScrollHeight="600px"
+            pagination
+            paginationPosition="bottom"
+          />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   )
 }
 

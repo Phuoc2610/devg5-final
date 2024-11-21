@@ -77,7 +77,7 @@ const UserDashboard = () => {
     },
   ];
   return (
-    <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="w-[400px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between">
         <div>
           <p className="text-base font-normal text-gray-500 dark:text-gray-400">
@@ -112,7 +112,8 @@ const UserDashboard = () => {
           options={options}
           series={series}
           type="area"
-          height={200}
+          height={100}
+          width={370}
         />
       </div>
 

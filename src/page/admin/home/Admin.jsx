@@ -3,9 +3,9 @@ import SidebarAdmin from "../sidebar/SidebarAdmin";
 import { Outlet } from 'react-router-dom';
 const Admin = () => {
     return (
-        <div className="flex bg-gray-200 h-screen">
+        <div className="md:flex bg-gray-200 ">
             <SidebarAdmin />
-            <div className="flex-1">
+            <div className="md:flex-1">
                 <Outlet />
             </div>
         </div>

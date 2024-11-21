@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 import AddCategory from './AddCategory';
+import EditCategory from './EditCategory';
 const CategoryManage = () => {
   const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false);
+  const [isEditCategoryOpen, setIsEditCategoryOpen] = useState(false);
 
   const columns = [
     {
@@ -21,10 +23,10 @@ const CategoryManage = () => {
       name: 'Action',
       center: true,
       cell: (row) => (
-        <div>
+        <div className="max-md:flex max-md:w-56">
           <button
             className="bg-yellow-400 text-white px-2 py-1 rounded mr-2"
-            onClick={() => handleEdit(row)}
+            onClick={() => setIsEditCategoryOpen(true)}
           >
             Edit
           </button>
@@ -120,9 +122,6 @@ const CategoryManage = () => {
       age: "26"
     }
   ]
-  const handleEdit = (row) => {
-    alert(`Edit user: ${row.name}`);
-  };
 
   const handleDelete = (row) => {
     const confirm = window.confirm(`Are you sure you want to delete ${row.name}?`);
@@ -131,21 +130,21 @@ const CategoryManage = () => {
     }
   };
   return (
-    <div>
-      <h1 className="grid place-items-center text-4xl my-4">Manage Category</h1>
+    <div className="h-screen">
+      <h1 className="grid place-items-center text-4xl py-2">Manage Category</h1>
       <button
         className="btn-add my-2 ml-6 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={() => setIsAddCategoryOpen(true)}
       >
         Add category
       </button>
-      <div className="w-[70%] mx-auto border border-gray-300 rounded-md shadow-md">
+      <div className="w-[90%] lg:w-[70%] mx-auto border border-gray-300 rounded-md shadow-md">
         <div className="overflow-hidden">
           <DataTable
             columns={columns}
             data={data}
             fixedHeader
-            fixedHeaderScrollHeight="500px"
+            fixedHeaderScrollHeight="600px"
             pagination
             paginationPosition="bottom"
           />
@@ -153,6 +152,9 @@ const CategoryManage = () => {
       </div>
       {isAddCategoryOpen && (
         <AddCategory onClose={() => setIsAddCategoryOpen(false)} />
+      )}
+      {isEditCategoryOpen && (
+        <EditCategory onClose={() => setIsEditCategoryOpen(false)} />
       )}
     </div>
   )

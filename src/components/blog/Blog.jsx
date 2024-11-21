@@ -9,21 +9,21 @@ const BlogData = [
         subtitle: "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
         published: "Jan 20, 2024 by Satya",
         image: Image1,
-        aosDelay: "0"
+        aosDelay: "300"
     },
     {
         title: "How to choose perfect gadget",
         subtitle: "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
         published: "Jan 20, 2024 by Satya",
         image: Image2,
-        aosDelay: "200"
+        aosDelay: "400"
     },
     {
         title: "How to choose perfect gadget",
         subtitle: "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
         published: "Jan 20, 2024 by Satya",
         image: Image3,
-        aosDelay: "400"
+        aosDelay: "500"
     }
 ]
 
@@ -44,7 +44,7 @@ const Blog = () => {
                                 <div className="overflow-hidden rounded-2xl mb-2">
                                     <img src={data.image} alt="" className="w-full h-[220px] object-cover rounded-2xl hover:scale-105 duration-500" />
                                 </div>
-                                <div className="space-y-2">
+                                <div className="space-y-2 px-2">
                                     <p className="text-xs text-gray-500">{data.published}</p>
                                     <p className="font-bold line-clamp-1">{data.title}</p>
                                     <p className="line-clamp-2 text-sm text-gray-600 dark:text-gray-400">{data.subtitle}</p>

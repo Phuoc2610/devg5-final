@@ -46,6 +46,7 @@ const Carousel = () => {
                                             data-aos="zoom-out"
                                             data-aos-duration="500"
                                             data-aos-once="true"
+                                            data-aos-delay="200"
                                             className="text-2xl sm:text-6xl lg:text-2xl font-bold">
                                             {data.subtitle}
                                         </h1>
@@ -53,6 +54,7 @@ const Carousel = () => {
                                             data-aos="zoom-out"
                                             data-aos-duration="500"
                                             data-aos-once="true"
+                                            data-aos-delay="200"
                                             className="text-5xl sm:text-6xl lg:text-7xl font-bold">
                                             {data.title}
                                         </h1>
@@ -60,6 +62,7 @@ const Carousel = () => {
                                             data-aos="zoom-out"
                                             data-aos-duration="500"
                                             data-aos-once="true"
+                                            data-aos-delay="200"
                                             className="text-5xl uppercase text-white dark:text-white/5 sm:text-[80px] md:text-[100px] xl:text-[150px] font-bold">
                                             {data.title2}
                                         </h1>
@@ -68,14 +71,16 @@ const Carousel = () => {
                                             data-aos-offset="0"
                                             data-aos-duration="500"
                                             data-aos-once="true"
+                                            data-aos-delay="200"
                                         >
-                                            <button>Shop now</button>
+                                            <button className="btn-add">Shop now</button>
                                         </div>
                                     </div>
                                     <div className="order-1 sm:order-2">
                                         <div
                                             data-aos="zoom-in"
                                             data-aos-once="true"
+                                            data-aos-delay="200"
                                             className="relative z-10"
                                         >
                                             <img

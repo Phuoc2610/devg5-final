@@ -82,7 +82,7 @@ const LeadsDashboard = () => {
   ];
 
   return (
-    <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="w-[400px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center">
           <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
@@ -131,23 +131,11 @@ const LeadsDashboard = () => {
           options={chartOptions}
           series={chartSeries}
           type="bar"
-          height={320}
+          height={350}
         />
       </div>
 
-      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-        <div className="flex justify-between items-center pt-5">
-          <button className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white">
-            Last 7 days
-          </button>
-          <a
-            href="#"
-            className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2"
-          >
-            Leads Report
-          </a>
-        </div>
-      </div>
+
     </div>
   );
 };
