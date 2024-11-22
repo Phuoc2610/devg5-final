@@ -82,7 +82,7 @@ const RevenueDashboard = () => {
   };
 
   return (
-    <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px] xl:w-[600px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
         <dl>
           <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
@@ -112,7 +112,6 @@ const RevenueDashboard = () => {
           </span>
         </div>
       </div>
-
       <div className="grid grid-cols-2 py-3">
         <dl>
           <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
@@ -137,26 +136,11 @@ const RevenueDashboard = () => {
           options={chartOptions}
           series={chartOptions.series}
           type="bar"
-          height={400}
+          height={300}
+          width="100%"
         />
       </div>
 
-      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-        <div className="flex justify-between items-center pt-5">
-          <button
-            className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
-            type="button"
-          >
-            Last 6 months
-          </button>
-          <a
-            href="#"
-            className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2"
-          >
-            Revenue Report
-          </a>
-        </div>
-      </div>
     </div>
   );
 };

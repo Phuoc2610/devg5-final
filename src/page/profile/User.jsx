@@ -2,11 +2,13 @@ import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import { MdLogout } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import { RiLockPasswordFill } from "react-icons/ri";
 
 const User = () => {
     const [dropdown, setDropdown] = useState(true);
-
+    const logout = () => {
+        localStorage.clear();
+        window.location.href = '/';
+    };
     return (
         <div>
             <div className="avatar relative">
@@ -21,13 +23,9 @@ const User = () => {
                     <ul className="z-10 absolute top-11 left-[-50px] md:left-[-90px] lg:left-[-50px] rounded-md bg-white text-slate-600 dark:bg-gray-900 dark:text-gray-500 font-medium shadow-md">
                         <li className="py-2 px-6 flex items-center hover:bg-gray-700 hover:text-white duration-300">
                             <CgProfile className="h-6 w-6 mr-2" />
-                            <Link to="/">Profile</Link>
+                            <Link to="/profile">Profile</Link>
                         </li>
-                        <li className="py-2 px-6 flex items-center hover:bg-gray-700 hover:text-white duration-300">
-                            <RiLockPasswordFill className="mr-2" />
-                            <Link to="/">Password</Link>
-                        </li>
-                        <li className="py-2 px-6 flex items-center hover:bg-gray-700 hover:text-white duration-300">
+                        <li onClick={()=>{logout()}} className="py-2 px-6 flex items-center hover:bg-gray-700 hover:text-white duration-300">
                             <MdLogout className="h-6 w-6 mr-2" />
                             Logout
                         </li>

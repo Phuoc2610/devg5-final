@@ -35,7 +35,7 @@ const WebsiteTrafficDashboard = () => {
   };
 
   return (
-    <div className="w-[400px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px]  bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between items-start w-full">
         <div className="flex-col items-center">
           <div className="flex items-center mb-1">
@@ -56,7 +56,7 @@ const WebsiteTrafficDashboard = () => {
           options={chartOptions}
           series={chartOptions.series}
           type="pie"
-          height={350}
+          height={300}
         />
       </div>
 

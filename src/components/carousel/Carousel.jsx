@@ -22,7 +22,7 @@ const CarouselData = [
         img: Image3,
         subtitle: "Beats Solo",
         title: "wireless",
-        title2: "Headphone1",
+        title2: "Headphone",
     },
 ]
 const Carousel = () => {
@@ -35,7 +35,7 @@ const Carousel = () => {
     };
     return (
         <div className="w-[90%] mx-auto mt-[79px]">
-            <div className="carousel-bg-color overflow-hidden rounded-3xl min-h-[550px] sm:min-h-[650px] flex justify-center items-center">
+            <div className=" bg-gray-300/80 dark:bg-gray-800 dark:text-white overflow-hidden rounded-3xl min-h-[550px] sm:min-h-[650px] flex justify-center items-center">
                 <div className="w-full pb-8 sm:pb-0">
                     <Slider {...settings}>
                         {CarouselData.map((data) => (

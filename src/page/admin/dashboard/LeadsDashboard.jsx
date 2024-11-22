@@ -82,7 +82,7 @@ const LeadsDashboard = () => {
   ];
 
   return (
-    <div className="w-[400px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px] xl:w-[600px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center">
           <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
@@ -131,7 +131,8 @@ const LeadsDashboard = () => {
           options={chartOptions}
           series={chartSeries}
           type="bar"
-          height={350}
+          height={290}
+          width= "100%"
         />
       </div>
 

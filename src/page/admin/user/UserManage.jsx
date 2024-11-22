@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import DataTable from 'react-data-table-component'
 
 const UserManage = () => {
+  // Responsive Table
+  const [scrollHeight, setScrollHeight] = useState("430px");
+  const updateScrollHeight = () => {
+    if (window.innerWidth < 768) {
+      setScrollHeight("430px");
+    } else if (window.innerWidth < 1024) {
+      setScrollHeight("450px");
+    } else if (window.innerWidth < 1280) {
+      setScrollHeight("500px");
+    } else {
+      setScrollHeight("650px");
+    }
+  };
+  useEffect(() => {
+    updateScrollHeight(); // Cập nhật ngay khi component render lần đầu
+    window.addEventListener("resize", updateScrollHeight); // Lắng nghe sự kiện thay đổi kích thước
+    return () => window.removeEventListener("resize", updateScrollHeight); // Cleanup
+  }, []);
+  // Fetch data
   const columns = [
     {
       name: "Id",
@@ -49,7 +68,7 @@ const UserManage = () => {
       name: 'Action',
       center: true,
       cell: (row) => (
-        <div className="max-md:w-80 max-md:flex">
+        <div className="max-md:w-80 max-md:flex md:w-80">
           <button
             className="bg-green-500 text-white px-2 py-1 rounded mr-2"
             onClick={() => handleDetails(row)}
@@ -230,12 +249,12 @@ const UserManage = () => {
       role: 'Store',
     },
   ];
-
+  // Button Details
   const handleDetails = (row) => {
     alert(`Edit user: ${row.name}`);
     // Add edit logic here
   };
-
+  // Button Band
   const handleBand = (row) => {
     const confirm = window.confirm(`Are you sure you want to delete ${row.name}?`);
     if (confirm) {
@@ -243,17 +262,18 @@ const UserManage = () => {
       // Add delete logic here
     }
   };
+
   return (
     <div className="h-screen">
       <h1 className="grid place-items-center text-4xl py-4">Manage User</h1>
-      <div className="w-[90%] mx-auto border border-gray-300 rounded-md shadow-md">
+      <div className="md:w-[650px] lg:w-[850px] xl:w-[90%] mx-auto border border-gray-300 rounded-md shadow-md">
         <div className="overflow-hidden">
           <DataTable
             columns={columns}
             data={data}
             fixedHeader
-            fixedHeaderScrollHeight="600px"
             pagination
+            fixedHeaderScrollHeight={scrollHeight}
             paginationPosition="bottom"
           />
         </div>

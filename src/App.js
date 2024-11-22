@@ -12,6 +12,7 @@ import Admin from './page/admin/home/Admin';
 import DashboardAdmin from './page/admin/dashboard/DashboardAdmin';
 import CategoryManage from './page/admin/category/CategoryManage';
 import UserManage from './page/admin/user/UserManage';
+import Profile from './page/profile/Profile';
 
 function App() {
   React.useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
             <Route path="user" element={<UserManage />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/productFilter" element={<FilterProduct />} />
           <Route path="/contact" element={<Contact />} />

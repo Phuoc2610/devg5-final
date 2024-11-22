@@ -8,7 +8,7 @@ import Sidebar from '../components/sidebar/Sidebar';
 import Footer from '../components/footer/Footer';
 const Home = () => {
     return (
-        <div className="w-full bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
+        <div className="w-full bg-white dark:bg-gray-900 dark:text-white  overflow-hidden">
             <div className="fixed z-20 top-0 w-full">
                 <Navbar />
             </div>

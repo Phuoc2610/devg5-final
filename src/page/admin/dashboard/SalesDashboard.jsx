@@ -99,7 +99,7 @@ const SalesDashboard = () => {
   ];
 
   return (
-    <div className="col-span-2 w-[810px] bg-white rounded-lg shadow dark:bg-gray-800">
+    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px] xl:w-[600px] bg-white rounded-lg shadow dark:bg-gray-800">
       <div className="flex justify-between p-4 md:p-6 pb-0 md:pb-0">
         <div>
           <h5 className="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">
@@ -129,7 +129,7 @@ const SalesDashboard = () => {
         </div>
       </div>
       <div id="labels-chart" className="px-2.5">
-        <ReactApexChart options={options} series={series} type="area" height={380} width={800} />
+        <ReactApexChart options={options} series={series} type="area" height={290} width="100%" />
       </div>
       
     </div>

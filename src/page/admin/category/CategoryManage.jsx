@@ -1,11 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DataTable from 'react-data-table-component'
 import AddCategory from './AddCategory';
 import EditCategory from './EditCategory';
 const CategoryManage = () => {
+  // Open Modal
   const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false);
   const [isEditCategoryOpen, setIsEditCategoryOpen] = useState(false);
-
+  // Responsive Table
+  const [scrollHeight, setScrollHeight] = useState("430px");
+  const updateScrollHeight = () => {
+    if (window.innerWidth < 768) {
+      setScrollHeight("400px");
+    } else if (window.innerWidth < 1024) {
+      setScrollHeight("440px");
+    } else if (window.innerWidth < 1280) {
+      setScrollHeight("460px");
+    } else {
+      setScrollHeight("650px");
+    }
+  };
+  useEffect(() => {
+    updateScrollHeight(); // Cập nhật ngay khi component render lần đầu
+    window.addEventListener("resize", updateScrollHeight); // Lắng nghe sự kiện thay đổi kích thước
+    return () => window.removeEventListener("resize", updateScrollHeight); // Cleanup
+  }, []);
+  // Fetch data
   const columns = [
     {
       name: "Id",
@@ -122,13 +141,14 @@ const CategoryManage = () => {
       age: "26"
     }
   ]
-
+  // Button delete
   const handleDelete = (row) => {
     const confirm = window.confirm(`Are you sure you want to delete ${row.name}?`);
     if (confirm) {
       alert(`User ${row.name} has been deleted.`);
     }
   };
+
   return (
     <div className="h-screen">
       <h1 className="grid place-items-center text-4xl py-2">Manage Category</h1>
@@ -144,12 +164,13 @@ const CategoryManage = () => {
             columns={columns}
             data={data}
             fixedHeader
-            fixedHeaderScrollHeight="600px"
             pagination
+            fixedHeaderScrollHeight={scrollHeight}
             paginationPosition="bottom"
           />
         </div>
       </div>
+      {/* Modal */}
       {isAddCategoryOpen && (
         <AddCategory onClose={() => setIsAddCategoryOpen(false)} />
       )}
