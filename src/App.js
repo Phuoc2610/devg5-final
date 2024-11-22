@@ -13,6 +13,9 @@ import DashboardAdmin from './page/admin/dashboard/DashboardAdmin';
 import CategoryManage from './page/admin/category/CategoryManage';
 import UserManage from './page/admin/user/UserManage';
 import Profile from './page/profile/Profile';
+import ShoppingCart from './page/cart/ShoppingCart';
+import ChatInterface from './page/chat/ChatInterface';
+import AuthForm from './page/AuthForm';
 
 function App() {
   React.useEffect(() => {
@@ -36,10 +39,12 @@ function App() {
             <Route path="category" element={<CategoryManage />} />
             <Route path="user" element={<UserManage />} />
           </Route>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<AuthForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/productFilter" element={<FilterProduct />} />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
+          <Route path="/chat" element={<ChatInterface />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>

@@ -9,7 +9,6 @@
   .shadown-left {
     box-Shadow: -5px 0px 10px rgba(0, 0, 0, 0.1);
   }
-
 }
 
 @layer components {
@@ -45,4 +44,12 @@
   .text-footer {
     @apply pl-2 mt-1 font-normal;
   }
+}
+
+@keyframes truck {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.animate-truck {
+  animation: truck 2s linear;
 }

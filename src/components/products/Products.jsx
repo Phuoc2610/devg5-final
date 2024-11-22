@@ -8,6 +8,9 @@ import Image6 from "../../assets/category/vr.png";
 import Image7 from "../../assets/category/watch.png";
 import Pagination from '../pagination/Pagination';
 import { Link } from 'react-router-dom';
+import AddToCartButton from '../button/AddToCartButton';
+import CreateButton from '../button/CreateButton';
+import DeleteButton from '../button/DeleteButton';
 
 const ProductsData = [
     {
