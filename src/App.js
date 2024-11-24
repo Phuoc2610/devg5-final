@@ -1,10 +1,9 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import Home from './page/Home';
-import Login from './page/Login';
 import AOS from 'aos';
 import "aos/dist/aos.css"
+import Home from './page/home/Home';
 import ProductDetail from './components/products/ProductDetail';
 import FilterProduct from './page/products/FilterProduct';
 import Contact from './page/contact/Contact';
@@ -15,7 +14,12 @@ import UserManage from './page/admin/user/UserManage';
 import Profile from './page/profile/Profile';
 import ShoppingCart from './page/cart/ShoppingCart';
 import ChatInterface from './page/chat/ChatInterface';
-import AuthForm from './page/AuthForm';
+import Login from './page/login/Login';
+import Store from './page/store/home/Store';
+import DashboardStore from './page/store/dashboard/DashboardStore';
+import ProductManage from './page/store/products/ProductManage';
+import VoucherManage from './page/store/voucher/VoucherManage';
+import ChatStore from './page/store/chat/ChatStore';
 
 function App() {
   React.useEffect(() => {
@@ -39,7 +43,13 @@ function App() {
             <Route path="category" element={<CategoryManage />} />
             <Route path="user" element={<UserManage />} />
           </Route>
-          <Route path="/login" element={<AuthForm />} />
+          <Route path="/store" element={<Store />}>
+            <Route path="" element={<DashboardStore />} />
+            <Route path="product" element={<ProductManage />} />
+            <Route path="voucher" element={<VoucherManage />} />
+            <Route path="chat" element={<ChatStore />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/productFilter" element={<FilterProduct />} />

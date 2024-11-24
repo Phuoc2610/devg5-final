@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from "../components/navbar/Narbar";
-import Carousel from "../components/carousel/Carousel";
-import Services from '../components/support/Services';
-import Blog from '../components/blog/Blog';
-import Products from '../components/products/Products';
-import Sidebar from '../components/sidebar/Sidebar';
-import Footer from '../components/footer/Footer';
+import Navbar from "../../components/navbar/Narbar";
+import Carousel from "../../components/carousel/Carousel";
+import Services from '../../components/support/Services';
+import Blog from '../../components/blog/Blog';
+import Products from '../../components/products/Products';
+import Sidebar from '../../components/sidebar/Sidebar';
+import Footer from '../../components/footer/Footer';
 const Home = () => {
     return (
         <div className="w-full bg-white dark:bg-gray-900 dark:text-white  overflow-hidden">
