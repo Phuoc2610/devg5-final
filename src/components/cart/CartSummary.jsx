@@ -2,7 +2,7 @@ import React from 'react'
 
 const CartSummary = ({ subtotal, tax, shipping, total, discount }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Order Summary</h2>
       <div className="space-y-2">
         <div className="flex justify-between text-gray-600 dark:text-gray-400">

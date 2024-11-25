@@ -108,11 +108,10 @@ const ChangePassword = () => {
                             {[...Array(5)].map((_, index) => (
                                 <div
                                     key={index}
-                                    className={`h-2 w-full rounded ${
-                                        index < checkPasswordStrength(passwordData.newPassword)
+                                    className={`h-2 w-full rounded ${index < checkPasswordStrength(passwordData.newPassword)
                                             ? "bg-green-500"
                                             : "bg-gray-200 dark:bg-gray-600"
-                                    }`}
+                                        }`}
                                 />
                             ))}
                         </div>

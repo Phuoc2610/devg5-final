@@ -56,7 +56,7 @@ const Profile = () => {
                                     onClick={() => setActiveTab("vouchers")}
                                     className={`pb-2 px-4 ${activeTab === "vouchers" ? "border-b-2 border-blue-500 text-blue-500" : "text-gray-500"}`}
                                 >
-                                    Order History
+                                    List Voucher
                                 </button>
                             </div>
                         </div>

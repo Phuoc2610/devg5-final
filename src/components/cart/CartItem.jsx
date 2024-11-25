@@ -3,7 +3,7 @@ import { FaTrash, FaMinus, FaPlus, FaShoppingCart, FaCreditCard, FaCheckCircle }
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
   return (
-    <div className="flex items-center justify-between p-4 mb-4 bg-white dark:bg-gray-800 rounded-lg overflow-y-auto">
+    <div className="flex items-center justify-between p-4 mb-4 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-y-auto">
       <div className="flex items-center space-x-4">
         <img src={`https://${item.image}`} alt={item.name} className="w-24 h-24 object-cover rounded-md" />
         <div>

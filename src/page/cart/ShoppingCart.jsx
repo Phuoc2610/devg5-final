@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 import Stepper from "../../components/stepper/Stepper";
 import CartItem from "../../components/cart/CartItem";
 import CartSummary from "../../components/cart/CartSummary";
-import ListVoucher from "../../components/voucher/ListVoucher";
+import VoucherApply from "../../components/voucher/VoucherApply";
 import Navbar from "../../components/navbar/Narbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-
+import ConfirmInfoPayment from "../../components/payment/ConfirmInfoPayment"
+import { Link } from "react-router-dom";
 const ShoppingCart = () => {
     const [items, setItems] = useState([
         {
@@ -57,7 +59,6 @@ const ShoppingCart = () => {
             category: "headphones"
         }
     ]);
-    
 
     const [currentStep] = useState(0);
     const [discount, setDiscount] = useState(0);
@@ -86,38 +87,76 @@ const ShoppingCart = () => {
         <div className="w-full">
             <Navbar />
             <Sidebar />
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+            {currentStep === 2 && (
+                <>
+                    <div className="grid place-items-center bg-white dark:bg-gray-900 dark:text-gray-300 pt-28">
+                        <FaCheckCircle className="text-[120px] text-emerald-500 " />
+                        <h1 className="text-4xl font-semibold">Payment Successful!</h1>
+                        <p className="text-lg mt-2">Thank you for your purchase.</p>
+                        <Link className="btn-add bg-emerald-500 mt-4" to="/">
+                            Back to Shop
+                        </Link>
+                    </div>
+                </>
+            )}
+            <div className="bg-white dark:bg-gray-900 py-6 px-4 sm:px-6 lg:px-8">
                 <div className=" max-w-7xl mx-auto">
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Shopping Cart</h1>
-                    <Stepper currentStep={currentStep} />
+                    {(currentStep === 0 || currentStep === 1) && (
+                        <>
+                            <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Shopping Cart</h1>
+                            <Stepper currentStep={currentStep} />
+                        </>
+                    )}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2">
-                            {items.map(item => (
-                                <CartItem
-                                    key={item.id}
-                                    item={item}
-                                    onUpdateQuantity={handleUpdateQuantity}
-                                    onRemove={handleRemoveItem}
-                                />
-                            ))}
-                            {items.length === 0 && (
-                                <div className="text-center py-8 text-gray-400">
-                                    Your cart is empty
-                                </div>
+                            {currentStep === 0 && (
+                                <>
+                                    {items.map(item => (
+                                        <CartItem
+                                            key={item.id}
+                                            item={item}
+                                            onUpdateQuantity={handleUpdateQuantity}
+                                            onRemove={handleRemoveItem}
+                                        />
+                                    ))}
+                                    {items.length === 0 && (
+                                        <div className="text-center py-8 text-gray-400">
+                                            Your cart is empty
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                            {currentStep === 1 && (
+                                <>
+                                    <ConfirmInfoPayment />
+                                </>
                             )}
                         </div>
                         <div className="space-y-6">
-                            <ListVoucher onApply={handleApplyVoucher} />
-                            <CartSummary
-                                subtotal={subtotal}
-                                tax={tax}
-                                shipping={shipping}
-                                total={total}
-                                discount={discount}
-                            />
-                            <button className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                Checkout
-                            </button>
+                            {(currentStep === 0 || currentStep === 1) && (
+                                <>
+                                    <VoucherApply onApply={handleApplyVoucher} />
+                                    <CartSummary
+                                        subtotal={subtotal}
+                                        tax={tax}
+                                        shipping={shipping}
+                                        total={total}
+                                        discount={discount}
+                                    />
+                                    {currentStep === 0 && (
+                                        <>
+                                            <button className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                                Checkout
+                                            </button>
+                                        </>
+                                    )}
+                                    {currentStep === 1 && (
+                                        <button className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            Confirm Payment
+                                        </button>
+                                    )}
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
