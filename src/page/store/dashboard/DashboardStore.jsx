@@ -11,7 +11,7 @@ const DashboardStore = () => {
       <UserDashboard />
       <SalesDashboard />
       <LeadsDashboard />
-      <TrafficDashboard/>
+      <TrafficDashboard />
       <TeamProgressDashboard />
     </div>
   )
