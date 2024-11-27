@@ -265,7 +265,7 @@ const UserManage = () => {
 
   return (
     <div className="h-screen">
-      <h1 className="grid place-items-center text-4xl py-4">Manage User</h1>
+      <h1 className="grid place-items-center text-4xl py-4 dark:text-white">Manage User</h1>
       <div className="md:w-[650px] lg:w-[850px] xl:w-[90%] mx-auto border border-gray-300 rounded-md shadow-md">
         <div className="overflow-hidden">
           <DataTable
@@ -282,4 +282,4 @@ const UserManage = () => {
   )
 }
 
-export default UserManage
+export default UserManage;

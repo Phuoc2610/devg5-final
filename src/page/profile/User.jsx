@@ -20,7 +20,7 @@ const User = () => {
                     />
                 </div>
                 {!dropdown && (
-                    <ul className="z-10 absolute top-11 left-[-50px] md:left-[-90px] lg:left-[-50px] rounded-md bg-white text-slate-600 dark:bg-gray-900 dark:text-gray-500 font-medium shadow-md">
+                    <ul className="z-10 absolute top-11 left-[-50px] md:left-[-90px] lg:left-[-50px] rounded-md bg-white text-slate-600 dark:bg-gray-800 dark:text-gray-500 font-medium shadow-md">
                         <li className="py-2 px-6 flex items-center hover:bg-gray-700 hover:text-white duration-300">
                             <CgProfile className="h-6 w-6 mr-2" />
                             <Link to="/profile">Profile</Link>

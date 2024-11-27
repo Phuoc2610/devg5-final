@@ -22,7 +22,7 @@ const Stepper = ({ currentStep }) => {
                         {step.label}
                     </span>
                     {index < steps.length - 1 && (
-                        <div className={`w-8 md:w-20 h-1 mr-4 ${index < currentStep ? "bg-blue-600" : "bg-gray-200 dark:bg-gray-700"}`} />
+                        <div className={`w-8 md:w-20 h-1 mr-4 ${index < currentStep ? "bg-blue-600" : "bg-gray-400 dark:bg-gray-700"}`} />
                     )}
                 </div>
             ))}

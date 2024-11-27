@@ -1,7 +1,53 @@
 import React, { useState, useEffect } from 'react'
-import DataTable from 'react-data-table-component'
-import AddCategory from './AddCategory';
-import EditCategory from './EditCategory';
+import DataTable, { createTheme } from 'react-data-table-component'
+import AddCategory from '../../../components/category/AddCategory';
+import EditCategory from '../../../components/category/EditCategory';
+import Image from '../../../assets/robot-assistant.png';
+
+createTheme('darkMode', {
+  text: {
+    primary: '#e5e7eb',
+    secondary: '#9ca3af',
+  },
+  background: {
+    default: '#1f2937',
+  },
+  context: {
+    background: '#374151',
+    text: '#ffffff',
+  },
+  divider: {
+    default: '#4b5563',
+  },
+  action: {
+    button: '#4f46e5',
+    hover: 'rgba(255, 255, 255, 0.1)',
+    disabled: 'rgba(255, 255, 255, 0.3)',
+  },
+}, 'dark');
+
+createTheme('default', {
+  text: {
+    primary: '#111827',
+    secondary: '#6b7280',
+  },
+  background: {
+    default: '#ffffff',
+  },
+  context: {
+    background: '#e5e7eb',
+    text: '#111827',
+  },
+  divider: {
+    default: '#d1d5db',
+  },
+  action: {
+    button: '#2563eb',
+    hover: 'rgba(0, 0, 0, 0.1)',
+    disabled: 'rgba(0, 0, 0, 0.3)',
+  },
+}, 'light');
+
 const CategoryManage = () => {
   // Open Modal
   const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false);
@@ -24,6 +70,7 @@ const CategoryManage = () => {
     window.addEventListener("resize", updateScrollHeight); // Lắng nghe sự kiện thay đổi kích thước
     return () => window.removeEventListener("resize", updateScrollHeight); // Cleanup
   }, []);
+
   // Fetch data
   const columns = [
     {
@@ -36,6 +83,19 @@ const CategoryManage = () => {
       name: "Name",
       selector: row => row.name,
       sortable: true,
+      center: true,
+    },
+    {
+      name: "Image",
+      selector: (row) => row.image,
+      cell: (row) => (
+        <img
+          src={row.image}
+          alt={row.name}
+          className="w-10 h-10 object-cover rounded-md"
+        />
+      ),
+      sortable: false,
       center: true,
     },
     {
@@ -62,84 +122,10 @@ const CategoryManage = () => {
   const data = [
     {
       id: 1,
-      name: "phuoc",
-      email: "phuoc@gmail.com",
-      age: "21"
+      name: "phone",
+      image: Image,
     },
-    {
-      id: 2,
-      name: "huy",
-      email: "huy@gmail.com",
-      age: "22"
-    },
-    {
-      id: 3,
-      name: "phong",
-      email: "phong@gmail.com",
-      age: "23"
-    }, {
-      id: 4,
-      name: "cuong",
-      email: "cuong@gmail.com",
-      age: "24"
-    },
-    {
-      id: 5,
-      name: "vinh",
-      email: "vinh@gmail.com",
-      age: "25"
-    },
-    {
-      id: 6,
-      name: "dat",
-      email: "dat@gmail.com",
-      age: "26"
-    }, {
-      id: 7,
-      name: "phong",
-      email: "phong@gmail.com",
-      age: "23"
-    }, {
-      id: 8,
-      name: "cuong",
-      email: "cuong@gmail.com",
-      age: "24"
-    },
-    {
-      id: 9,
-      name: "vinh",
-      email: "vinh@gmail.com",
-      age: "25"
-    },
-    {
-      id: 10,
-      name: "dat",
-      email: "dat@gmail.com",
-      age: "26"
-    },
-    {
-      id: 11,
-      name: "phong",
-      email: "phong@gmail.com",
-      age: "23"
-    }, {
-      id: 12,
-      name: "cuong",
-      email: "cuong@gmail.com",
-      age: "24"
-    },
-    {
-      id: 13,
-      name: "vinh",
-      email: "vinh@gmail.com",
-      age: "25"
-    },
-    {
-      id: 14,
-      name: "dat",
-      email: "dat@gmail.com",
-      age: "26"
-    }
+
   ]
   // Button delete
   const handleDelete = (row) => {
@@ -151,14 +137,14 @@ const CategoryManage = () => {
 
   return (
     <div className="h-screen">
-      <h1 className="grid place-items-center text-4xl py-2">Manage Category</h1>
+      <h1 className="grid place-items-center text-4xl py-4 dark:text-white">Manage Category</h1>
       <button
         className="btn-add my-2 ml-6 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={() => setIsAddCategoryOpen(true)}
       >
         Add category
       </button>
-      <div className="w-[90%] lg:w-[70%] mx-auto border border-gray-300 rounded-md shadow-md">
+      <div className="w-[90%] lg:w-[70%] mx-auto  rounded-md shadow-md">
         <div className="overflow-hidden">
           <DataTable
             columns={columns}
@@ -181,4 +167,4 @@ const CategoryManage = () => {
   )
 }
 
-export default CategoryManage
+export default CategoryManage;

@@ -1,6 +1,5 @@
-import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AOS from 'aos';
 import "aos/dist/aos.css"
 import Home from './page/home/Home';
@@ -20,6 +19,7 @@ import DashboardStore from './page/store/dashboard/DashboardStore';
 import ProductManage from './page/store/products/ProductManage';
 import VoucherManage from './page/store/voucher/VoucherManage';
 import ChatStore from './page/store/chat/ChatStore';
+import BrandManage from './page/admin/brand/BrandManage';
 
 function App() {
   React.useEffect(() => {
@@ -41,6 +41,7 @@ function App() {
           <Route path="/admin" element={<Admin />}>
             <Route path="" element={<DashboardAdmin />} />
             <Route path="category" element={<CategoryManage />} />
+            <Route path="brand" element={<BrandManage />} />
             <Route path="user" element={<UserManage />} />
           </Route>
           <Route path="/store" element={<Store />}>

@@ -1,9 +1,9 @@
 import React from 'react'
-import UserDashboard from '../../admin/dashboard/UserDashboard'
-import SalesDashboard from '../../admin/dashboard/SalesDashboard'
-import LeadsDashboard from '../../admin/dashboard/LeadsDashboard'
-import TrafficDashboard from '../../admin/dashboard/TrafficDashboard'
-import TeamProgressDashboard from '../../admin/dashboard/TeamProgressDashboard'
+import UserDashboard from '../../../components/dashboard/UserDashboard'
+import SalesDashboard from '../../../components/dashboard/SalesDashboard'
+import LeadsDashboard from '../../../components/dashboard/LeadsDashboard'
+import TrafficDashboard from '../../../components/dashboard/TrafficDashboard'
+import TeamProgressDashboard from '../../../components/dashboard/TeamProgressDashboard'
 
 const DashboardStore = () => {
   return (

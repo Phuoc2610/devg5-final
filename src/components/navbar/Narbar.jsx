@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import User from '../../page/profile/User';
 import Search from '../search/Search';
 
-const Navbar = () => {
+const Navbar = ({ backgroundClass }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
     const toggleMenu = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="navbar w-full z-20 bg-white dark:bg-gray-900 ">
+        <div className= {`w-full z-20 dark:bg-gray-900 ${backgroundClass}`}>
             <div className="flex items-center justify-between w-[90%] mx-auto px-4 py-3">
                 <a href="" className=" text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">
                     DevSHOP

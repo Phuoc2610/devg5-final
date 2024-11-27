@@ -1,31 +1,70 @@
-import React, { useState } from 'react';
 
-const VoucherApply = ({ onApply }) => {
-    const [code, setCode] = useState("");
+import React, { useState } from "react";
+import { BsTag, BsX } from "react-icons/bs";
+const availableVouchers = [
+    { code: "DISCOUNT20", discount: 20, description: "$20 off on your purchase" },
+    { code: "SAVE30", discount: 30, description: "$30 off on your purchase" },
+    { code: "PERCENT20", discountPercentage: 20, description: "20% off on your purchase" },
+    { code: "PERCENT30", discountPercentage: 30, description: "30% off on your purchase" }
+];
 
-    const handleApply = () => {
-        onApply(code);
-        setCode("");
+const VoucherApply = ({ onApply, appliedVoucher, onRemove }) => {
+    const [showVoucherList, setShowVoucherList] = useState(false);
+
+    const handleApply = (voucher) => {
+        onApply(voucher);
+        setShowVoucherList(false);
     };
 
     return (
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-6">
-            <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Voucher Code</h2>
-            <div className="flex space-x-2">
-                <input
-                    type="text"
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    className="flex-1 px-4 py-2 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    placeholder="Enter voucher code"
-                />
-                <button
-                    onClick={handleApply}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                >
-                    Apply
-                </button>
+            <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Voucher Code</h3>
+                {!appliedVoucher && (
+                    <button
+                        onClick={() => setShowVoucherList(!showVoucherList)}
+                        className="p-2 text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                    >
+                        <BsTag size={24} />
+                    </button>
+                )}
             </div>
+            {appliedVoucher ? (
+                <div className="flex items-center justify-between bg-gray-200 dark:bg-gray-700 p-3 rounded-lg">
+                    <div>
+                        <p className="text-gray-800 dark:text-white font-medium">{appliedVoucher.code}</p>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm">{appliedVoucher.description}</p>
+                    </div>
+                    <button
+                        onClick={() => onRemove()}
+                        className="text-red-500 hover:text-red-600 dark:hover:text-red-400"
+                    >
+                        <BsX size={24} />
+                    </button>
+                </div>
+            ) : (
+                showVoucherList && (
+                    <div className="space-y-2">
+                        {availableVouchers.map((voucher) => (
+                            <div
+                                key={voucher.code}
+                                className="flex items-center justify-between bg-gray-200 dark:bg-gray-700 p-3 rounded-lg"
+                            >
+                                <div>
+                                    <p className="text-gray-800 dark:text-white font-medium">{voucher.code}</p>
+                                    <p className="text-gray-600 dark:text-gray-400 text-sm">{voucher.description}</p>
+                                </div>
+                                <button
+                                    onClick={() => handleApply(voucher)}
+                                    className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors"
+                                >
+                                    Apply
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )
+            )}
         </div>
     );
 };

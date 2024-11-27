@@ -55,12 +55,28 @@ const UpdateProfile = () => {
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Birth Date</label>
-                        <input
-                            type="date"
-                            className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        />
+                    <div className="md:flex justify-between">
+                        <div className="max-md:mb-4">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Birth Date</label>
+                            <input
+                                type="date"
+                                className="mt-1 block max-md:w-full w-60 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            />
+                        </div>
+                        <div >
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Gender</label>
+                            <select
+                                id="gender"
+                                name="gender"
+
+                                className="block max-md:w-full w-60 mt-1 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                            >
+                                <option value="">-- Select Gender --</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div className="md:col-span-2">

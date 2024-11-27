@@ -34,7 +34,7 @@ const Carousel = () => {
         slidesToScroll: 1,
     };
     return (
-        <div className="w-[90%] mx-auto mt-[79px]">
+        <div className="w-[90%] mx-auto mt-[79px] ">
             <div className=" bg-gray-300/80 dark:bg-gray-800 dark:text-white overflow-hidden rounded-3xl min-h-[550px] sm:min-h-[650px] flex justify-center items-center">
                 <div className="w-full pb-8 sm:pb-0">
                     <Slider {...settings}>
