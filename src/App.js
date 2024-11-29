@@ -20,6 +20,8 @@ import VoucherManage from './page/store/voucher/VoucherManage';
 import ChatStore from './page/store/chat/ChatStore';
 import BrandManage from './page/admin/brand/BrandManage';
 import AuthForm from './page/auth/AuthForm';
+import AnimatedBackground from './components/background/AnimatedBackground';
+import RestPassword from './components/password/RestPassword';
 
 function App() {
   React.useEffect(() => {
@@ -50,7 +52,9 @@ function App() {
             <Route path="voucher" element={<VoucherManage />} />
             <Route path="chat" element={<ChatStore />} />
           </Route>
-          <Route path="/login" element={<AuthForm />} />
+          <Route path="/restPassword" element={<RestPassword />} />
+          <Route path="/auth" element={<AuthForm />} />
+          <Route path="/background" element={<AnimatedBackground />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/productFilter" element={<FilterProduct />} />

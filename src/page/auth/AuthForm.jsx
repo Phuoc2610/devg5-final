@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Login from "../../components/login/Login";
 import Register from "../../components/register/Register";
 import ForgotPassword from "../../components/password/ForgotPassword";
+import AnimatedBackground from "../../components/background/AnimatedBackground";
 
 const AuthForm = () => {
   const [formType, setFormType] = useState("login");
@@ -28,7 +29,7 @@ const AuthForm = () => {
   const validateEmail = (email) => email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   const validatePassword = (password) => password.length >= 8;
   const validateFullName = (fullName) => {
-    return /^[a-zA-Z\s]+$/.test(fullName) && fullName.length >= 3;  // Only letters and spaces, at least 3 characters
+    return /^[a-zA-Z\s]+$/.test(fullName) && fullName.length >= 5;  // Only letters and spaces, at least 3 characters
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,7 +54,7 @@ const AuthForm = () => {
     // Validate input based on form type
     if (name === "fullName") {
       if (!validateFullName(value)) {
-        newErrors.fullName = "Full Name must be at least 3 characters long";
+        newErrors.fullName = "Full Name must be at least 5 characters long";
       } else {
         delete newErrors.fullName; // Only delete error if valid
       }
@@ -98,7 +99,7 @@ const AuthForm = () => {
       case "register":
         return "Create Account";
       case "forgot":
-        return "Reset Password";
+        return "Forgot Password";
       default:
         return "";
     }
@@ -118,12 +119,13 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500 p-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden">
+    <div className="min-h-screen flex overflow-hidden bg-gray-900 items-center justify-center p-4">
+      <AnimatedBackground />
+      <div className="max-w-md w-full fixed z-20 bg-gray-800/30 rounded-xl shadow-2xl overflow-hidden">
         <div className="p-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800">{getFormTitle()}</h2>
-            <p className="text-gray-600 mt-2">{getFormSubtitle()}</p>
+            <h2 className="text-3xl font-bold text-white">{getFormTitle()}</h2>
+            <p className="text-gray-300 mt-2">{getFormSubtitle()}</p>
           </div>
 
           <AnimatePresence mode="wait">
@@ -166,9 +168,9 @@ const AuthForm = () => {
 
               <button
                 type="submit"
-                className="w-full mt-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 rounded-lg hover:opacity-90 transition-opacity duration-300"
+                className="w-full mt-6 bg-gradient-to-tl from-gray-900 to-slate-800 text-white py-2 rounded-lg hover:opacity-80 transition-opacity duration-300"
               >
-                {formType === "login" ? "Sign In" : formType === "register" ? "Sign Up" : "Reset Password"}
+                {formType === "login" ? "Sign In" : formType === "register" ? "Sign Up" : "Send"}
               </button>
             </motion.form>
           </AnimatePresence>

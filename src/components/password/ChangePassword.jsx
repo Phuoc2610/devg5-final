@@ -21,16 +21,19 @@ const ChangePassword = () => {
         setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" });
     };
 
-    const checkPasswordStrength = (password) => {
-        const criteria = [
-            password.length >= 8,
-            /[A-Z]/.test(password),
-            /[a-z]/.test(password),
-            /[0-9]/.test(password),
-            /[^A-Za-z0-9]/.test(password),
-        ];
-        return criteria.filter(Boolean).length;
+
+    const calculateStrength = (password) => {
+        let strength = 0;
+        if (password.length >= 8) strength++;
+        if (password.match(/[A-Z]/)) strength++;
+        if (password.match(/[0-9]/)) strength++;
+        if (password.match(/[^A-Za-z0-9]/)) strength++;
+        return strength;
     };
+
+    const strength = calculateStrength(passwordData.newPassword);
+    const strengthLabels = ["Weak", "Medium", "Good", "Strong"];
+    const strengthColors = ["bg-red-500", "bg-yellow-500", "bg-blue-500", "bg-green-500"];
 
     return (
         <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
@@ -104,17 +107,17 @@ const ChangePassword = () => {
                         </button>
                     </div>
                     <div className="mt-2">
-                        <div className="flex space-x-2">
-                            {[...Array(5)].map((_, index) => (
+                        <div className="flex gap-1">
+                            {[...Array(4)].map((_, index) => (
                                 <div
                                     key={index}
-                                    className={`h-2 w-full rounded ${index < checkPasswordStrength(passwordData.newPassword)
-                                            ? "bg-green-500"
-                                            : "bg-gray-200 dark:bg-gray-600"
-                                        }`}
+                                    className={`h-2 w-full rounded-full ${index < strength ? strengthColors[strength - 1] : "bg-gray-200 dark:bg-gray-600"}`}
                                 />
                             ))}
                         </div>
+                        <p className="text-sm text-black dark:text-gray-400 mt-1">
+                            Password Strength: {strength > 0 ? strengthLabels[strength - 1] : "None"}
+                        </p>
                     </div>
                 </div>
 

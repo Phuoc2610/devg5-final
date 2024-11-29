@@ -20,11 +20,11 @@ const StrengthMeterPassword = ({ password }) => {
         {[...Array(4)].map((_, index) => (
           <div
             key={index}
-            className={`h-2 w-full rounded-full ${index < strength ? strengthColors[strength - 1] : "bg-gray-200"}`}
+            className={`h-2 w-full rounded-full ${index < strength ? strengthColors[strength - 1] : "bg-gray-600"}`}
           />
         ))}
       </div>
-      <p className="text-sm text-gray-600 mt-1">
+      <p className="text-sm text-gray-400 mt-1">
         Password Strength: {strength > 0 ? strengthLabels[strength - 1] : "None"}
       </p>
     </div>

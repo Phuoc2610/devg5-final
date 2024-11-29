@@ -1,4 +1,3 @@
-// PasswordInput.js
 import React from "react";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -15,7 +14,7 @@ const InputPassword = ({ id, value, onChange, placeholder, error, showPassword, 
                     name={id}
                     value={value}
                     onChange={onChange}
-                    className={`pl-10 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${error ? "border-red-500" : ""}`}
+                    className={`pl-10 w-full px-4 py-2 border rounded-lg bg-opacity-20 bg-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent ${error ? "border-red-500" : ""}`}
                     placeholder={placeholder}
                     required
                     aria-label={placeholder}
