@@ -9,9 +9,6 @@
   .shadown-left {
     box-Shadow: -5px 0px 10px rgba(0, 0, 0, 0.1);
   }
-  .rdt_TableHead, .rdt_TableHeadRow{
-    background-color: black !important;
-  }
 }
 
 @layer components {

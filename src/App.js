@@ -13,13 +13,13 @@ import UserManage from './page/admin/user/UserManage';
 import Profile from './page/profile/Profile';
 import ShoppingCart from './page/cart/ShoppingCart';
 import ChatInterface from './page/chat/ChatInterface';
-import Login from './page/login/Login';
 import Store from './page/store/home/Store';
 import DashboardStore from './page/store/dashboard/DashboardStore';
 import ProductManage from './page/store/products/ProductManage';
 import VoucherManage from './page/store/voucher/VoucherManage';
 import ChatStore from './page/store/chat/ChatStore';
 import BrandManage from './page/admin/brand/BrandManage';
+import AuthForm from './page/auth/AuthForm';
 
 function App() {
   React.useEffect(() => {
@@ -50,7 +50,7 @@ function App() {
             <Route path="voucher" element={<VoucherManage />} />
             <Route path="chat" element={<ChatStore />} />
           </Route>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<AuthForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/productFilter" element={<FilterProduct />} />
