@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import DataTable, { createTheme } from 'react-data-table-component'
+import DataTable, { createTheme } from 'react-data-table-component';
+import { FaSearch } from "react-icons/fa";
 import AddCategory from '../../../components/category/AddCategory';
 import EditCategory from '../../../components/category/EditCategory';
 import Image from '../../../assets/robot-assistant.png';
 
-createTheme('darkMode', {
+createTheme('dark', {
   text: {
     primary: '#e5e7eb',
     secondary: '#9ca3af',
@@ -26,27 +27,6 @@ createTheme('darkMode', {
   },
 }, 'dark');
 
-createTheme('default', {
-  text: {
-    primary: '#111827',
-    secondary: '#6b7280',
-  },
-  background: {
-    default: '#ffffff',
-  },
-  context: {
-    background: '#e5e7eb',
-    text: '#111827',
-  },
-  divider: {
-    default: '#d1d5db',
-  },
-  action: {
-    button: '#2563eb',
-    hover: 'rgba(0, 0, 0, 0.1)',
-    disabled: 'rgba(0, 0, 0, 0.3)',
-  },
-}, 'light');
 
 const CategoryManage = () => {
   // Open Modal
@@ -134,21 +114,42 @@ const CategoryManage = () => {
       alert(`User ${row.name} has been deleted.`);
     }
   };
+  const [records, setRecords] = useState(data);
+
+  const handleFiter = (event) => {
+    const newData = data.filter(row => {
+      return row.name.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+    setRecords(newData);
+  }
 
   return (
     <div className="h-screen">
-      <h1 className="grid place-items-center text-4xl py-4 dark:text-white">Manage Category</h1>
+      <h1 className="grid place-items-center text-4xl py-4 text-white">Manage Category</h1>
       <button
         className="btn-add my-2 ml-6 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={() => setIsAddCategoryOpen(true)}
       >
         Add category
       </button>
-      <div className="w-[90%] lg:w-[70%] mx-auto  rounded-md shadow-md">
+      <div className="w-[90%] lg:w-[70%] mx-auto rounded-md shadow-md">
+        {/* Search Box */}
+        <div className="flex justify-end my-2">
+          <div className="w-48 md:w-64 flex items-center rounded-md px-2 bg-gray-800">
+            <FaSearch className="flex items-center justify-center w-10 text-white" />
+            <input
+              type="text"
+              onChange={handleFiter}
+              placeholder="Search..."
+              className="bg-transparent w-44 border-none outline-none text-white  focus:ring-0"
+            />
+          </div>
+        </div>
         <div className="overflow-hidden">
           <DataTable
+            theme='dark'
             columns={columns}
-            data={data}
+            data={records}
             fixedHeader
             pagination
             fixedHeaderScrollHeight={scrollHeight}

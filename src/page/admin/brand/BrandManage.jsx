@@ -1,7 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import DataTable from 'react-data-table-component'
+import React, { useState, useEffect } from 'react';
+import DataTable, { createTheme } from 'react-data-table-component';
+import { FaSearch } from "react-icons/fa";
 import AddBrand from '../../../components/brand/AddBrand';
 import EditBrand from '../../../components/brand/EditBrand';
+
+createTheme('dark', {
+    text: {
+        primary: '#e5e7eb',
+        secondary: '#9ca3af',
+    },
+    background: {
+        default: '#1f2937',
+    },
+    context: {
+        background: '#374151',
+        text: '#ffffff',
+    },
+    divider: {
+        default: '#4b5563',
+    },
+    action: {
+        button: '#4f46e5',
+        hover: 'rgba(255, 255, 255, 0.1)',
+        disabled: 'rgba(255, 255, 255, 0.3)',
+    },
+}, 'dark');
+
 const BrandManage = () => {
     // Open Modal
     const [isAddBrandOpen, setIsAddBrandOpen] = useState(false);
@@ -31,7 +55,7 @@ const BrandManage = () => {
             selector: row => row.id,
             sortable: true,
             center: true,
-            
+
         },
         {
             name: "Name",
@@ -44,7 +68,7 @@ const BrandManage = () => {
             selector: (row) => row.image,
             cell: (row) => (
                 <img
-                    src= {row.image}
+                    src={row.image}
                     alt={row.name}
                     className="w-10 h-10 object-cover rounded-md"
                 />
@@ -94,9 +118,10 @@ const BrandManage = () => {
             name: "Microsoft",
             image: "www.example.com/images/microsoft-logo.png",
         },
-        
+
     ];
-    
+    const [records, setRecords] = useState(data);
+
     // Button delete
     const handleDelete = (row) => {
         const confirm = window.confirm(`Are you sure you want to delete ${row.name}?`);
@@ -104,21 +129,39 @@ const BrandManage = () => {
             alert(`User ${row.name} has been deleted.`);
         }
     };
+    const handleFiter = (event) => {
+        const newData = data.filter(row => {
+            return row.name.toLowerCase().includes(event.target.value.toLowerCase())
+        })
+        setRecords(newData);
+    }
 
     return (
         <div className="h-screen">
-            <h1 className="grid place-items-center text-4xl py-4 dark:text-white">Manage Brand</h1>
+            <h1 className="grid place-items-center text-4xl py-4 text-white">Manage Brand</h1>
             <button
                 className="btn-add my-2 ml-6 bg-blue-500 text-white px-4 py-2 rounded"
                 onClick={() => setIsAddBrandOpen(true)}
             >
                 Add Brand
             </button>
-            <div className="w-[90%] lg:w-[70%] mx-auto border border-gray-300 rounded-md shadow-md">
+            <div className="w-[90%] lg:w-[70%] mx-auto  rounded-md shadow-md">
+                <div className="flex justify-end my-2">
+                    <div className="w-48 md:w-64 flex items-center rounded-md px-2 bg-gray-800">
+                        <FaSearch className="flex items-center justify-center w-10 text-white" />
+                        <input
+                            type="text"
+                            onChange={handleFiter}
+                            placeholder="Search..."
+                            className="bg-transparent w-44 border-none outline-none text-white  focus:ring-0"
+                        />
+                    </div>
+                </div>
                 <div className="overflow-hidden">
                     <DataTable
+                        theme='dark'
                         columns={columns}
-                        data={data}
+                        data={records}
                         fixedHeader
                         pagination
                         fixedHeaderScrollHeight={scrollHeight}

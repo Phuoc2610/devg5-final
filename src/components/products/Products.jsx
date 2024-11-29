@@ -212,9 +212,9 @@ const Products = () => {
                                 </svg>
                             </div>
                             <button className="btn-add my-1">Add to card</button>
-                            {/* <AddToCartButton/>
+                            <AddToCartButton/>
                             <CreateButton/>
-                            <DeleteButton/> */}
+                            <DeleteButton/>
                         </div>
 
                     ))}

@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { MdOutlineHome, MdLogout } from "react-icons/md";
 import { IoMdChatboxes } from "react-icons/io";
 import { FaBarcode } from "react-icons/fa";
-import { PiUserListBold } from "react-icons/pi";
 import { BiCategory } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
-import Image from "../../../assets/robot-assistant.png"
+import Image from "../../assets/robot-assistant.png"
 const NavbarStore = () => {
   const [activeItem, setActiveItem] = useState(""); // Trạng thái lưu mục active
   const navigate = useNavigate();
@@ -25,14 +24,15 @@ const NavbarStore = () => {
     <div className="flex justify-around py-4">
       <div className="flex items-center">
         <img src={Image} alt="" className="w-8 h-8" />
+        <h1 className="max-md:hidden text-xl ml-2 font-semibold text-white">DevShop</h1>
       </div>
       <div className="ml-2">
         <ul className="flex">
           {menuItems.map((item, index) => (
             <li
               key={index}
-              className={`flex items-center p-2 cursor-pointer rounded-lg mx-1 ${activeItem === item.path ? "bg-gray-300" : "hover:bg-gray-200"
-                }`}
+              className={`flex items-center p-2 cursor-pointer rounded-lg mx-1 text-white ${activeItem === item.path ? "bg-gray-700" : "hover:bg-gray-700"
+              }`}
               onClick={() => handleClick(item.path)}
             >
               <div className="flex items-center justify-center w-7 ">{item.icon}</div>

@@ -2,18 +2,19 @@ import React from 'react'
 import UserDashboard from '../../../components/dashboard/UserDashboard'
 import SalesDashboard from '../../../components/dashboard/SalesDashboard'
 import LeadsDashboard from '../../../components/dashboard/LeadsDashboard'
-import TrafficDashboard from '../../../components/dashboard/TrafficDashboard'
-import TeamProgressDashboard from '../../../components/dashboard/TeamProgressDashboard'
 
 const DashboardStore = () => {
   return (
-    <div>
-      <UserDashboard />
-      <SalesDashboard />
-      <LeadsDashboard />
-      <TrafficDashboard />
-      <TeamProgressDashboard />
-    </div>
+    <div className="w-full">
+        <h1 className="grid place-items-center text-4xl py-4 text-white">Dashboard</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <UserDashboard />
+          <UserDashboard />
+          <SalesDashboard />
+          <LeadsDashboard />
+          
+        </div>
+      </div>
   )
 }
 

@@ -1,18 +1,43 @@
 import React, { useState, useEffect } from 'react'
-import DataTable from 'react-data-table-component'
+import DataTable, { createTheme } from 'react-data-table-component'
+import { FaSearch } from "react-icons/fa";
+
+createTheme('dark', {
+  text: {
+    primary: '#e5e7eb',
+    secondary: '#9ca3af',
+  },
+  background: {
+    default: '#1f2937',
+  },
+  context: {
+    background: '#374151',
+    text: '#ffffff',
+  },
+  divider: {
+    default: '#4b5563',
+  },
+  action: {
+    button: '#4f46e5',
+    hover: 'rgba(255, 255, 255, 0.1)',
+    disabled: 'rgba(255, 255, 255, 0.3)',
+  },
+}, 'dark');
 
 const UserManage = () => {
+
+
   // Responsive Table
   const [scrollHeight, setScrollHeight] = useState("430px");
   const updateScrollHeight = () => {
     if (window.innerWidth < 768) {
-      setScrollHeight("430px");
+      setScrollHeight("410px");
     } else if (window.innerWidth < 1024) {
-      setScrollHeight("450px");
+      setScrollHeight("430px");
     } else if (window.innerWidth < 1280) {
-      setScrollHeight("500px");
+      setScrollHeight("480px");
     } else {
-      setScrollHeight("650px");
+      setScrollHeight("630px");
     }
   };
   useEffect(() => {
@@ -249,6 +274,7 @@ const UserManage = () => {
       role: 'Store',
     },
   ];
+  const [records, setRecords] = useState(data);
   // Button Details
   const handleDetails = (row) => {
     alert(`Edit user: ${row.name}`);
@@ -262,15 +288,33 @@ const UserManage = () => {
       // Add delete logic here
     }
   };
+  const handleFiter = (event) => {
+    const newData = data.filter(row => {
+      return row.name.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+    setRecords(newData);
+  }
 
   return (
     <div className="h-screen">
-      <h1 className="grid place-items-center text-4xl py-4 dark:text-white">Manage User</h1>
-      <div className="md:w-[650px] lg:w-[850px] xl:w-[90%] mx-auto border border-gray-300 rounded-md shadow-md">
+      <h1 className="grid place-items-center text-4xl py-4 text-white">Manage User</h1>
+      <div className="md:w-[650px] lg:w-[850px] xl:w-[90%] mx-auto  rounded-md shadow-md">
+        <div className="flex justify-end my-2">
+          <div className="w-48 md:w-64 flex items-center rounded-md px-2 bg-gray-800">
+            <FaSearch className="flex items-center justify-center w-10 text-white" />
+            <input
+              type="text"
+              onChange={handleFiter}
+              placeholder="Search..."
+              className="bg-transparent w-44 border-none outline-none text-white  focus:ring-0"
+            />
+          </div>
+        </div>
         <div className="overflow-hidden">
           <DataTable
+            theme='dark'
             columns={columns}
-            data={data}
+            data={records}
             fixedHeader
             pagination
             fixedHeaderScrollHeight={scrollHeight}

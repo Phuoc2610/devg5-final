@@ -34,15 +34,15 @@ const TrafficDashboard = () => {
   };
 
   return (
-    <div className="w-[400px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="w-[400px] rounded-lg shadow bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between items-start w-full">
         <div className="flex-col items-center">
           <div className="flex items-center mb-1">
-            <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">
+            <h5 className="text-xl font-bold leading-none text-white me-1">
               Website traffic
             </h5>
             <svg
-              className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1"
+              className="w-3.5 h-3.5 text-gray-400 hover:text-white cursor-pointer ms-1"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -54,7 +54,7 @@ const TrafficDashboard = () => {
         </div>
         <button
           type="button"
-          className="inline-flex items-center text-blue-700 dark:text-blue-600 font-medium hover:underline"
+          className="inline-flex items-center text-blue-600 font-medium hover:underline"
         >
           31 Nov - 31 Dev
         </button>
@@ -68,17 +68,17 @@ const TrafficDashboard = () => {
           height={320}
         />
       </div>
-      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+      <div className="grid grid-cols-1 items-center border-t border-gray-700 justify-between">
         <div className="flex justify-between items-center pt-5">
           <button
             type="button"
-            className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
+            className="text-sm font-medium text-gray-400 text-center inline-flex items-center hover:text-white"
           >
             Last 7 days
           </button>
           <a
             href="#"
-            className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2"
+            className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-500 hover:bg-gray-700 focus:ring-gray-700 border-gray-700 px-3 py-2"
           >
             Traffic analysis
           </a>

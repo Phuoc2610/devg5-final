@@ -1,12 +1,12 @@
 import React from 'react'
-import NavbarStore from '../navbar/NavbarStore'
+import NavbarStore from '../../../components/navbar/NavbarStore'
 import { Outlet } from 'react-router-dom';
 
 const Store = () => {
   return (
-    <div className="">
+    <div className="bg-gray-900 ">
       <NavbarStore />
-      <div>
+      <div className="w-[90%] mx-auto">
         <Outlet />
       </div>
     </div>

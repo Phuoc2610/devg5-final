@@ -35,17 +35,17 @@ const WebsiteTrafficDashboard = () => {
   };
 
   return (
-    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px]  bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px]  rounded-lg shadow bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between items-start w-full">
         <div className="flex-col items-center">
           <div className="flex items-center mb-1">
-            <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">
+            <h5 className="text-xl font-bold leading-none text-white me-1">
               Website traffic
             </h5>
           </div>
         </div>
         <button
-          className="inline-flex items-center text-blue-700 dark:text-blue-600 font-medium hover:underline"
+          className="inline-flex items-centertext-blue-600 font-medium hover:underline"
         >
           31 Nov - 31 Dev
         </button>

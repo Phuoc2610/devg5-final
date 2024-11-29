@@ -48,7 +48,7 @@ const RevenueDashboard = () => {
       labels: {
         style: {
           fontFamily: "Inter, sans-serif",
-          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+          cssClass: "text-xs font-normal fill-gray-400",
         },
         formatter: (value) => `$${value}`,
       },
@@ -63,7 +63,7 @@ const RevenueDashboard = () => {
       labels: {
         style: {
           fontFamily: "Inter, sans-serif",
-          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+          cssClass: "text-xs font-normal fill-gray-400",
         },
       },
     },
@@ -82,18 +82,18 @@ const RevenueDashboard = () => {
   };
 
   return (
-    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px] xl:w-[600px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-      <div className="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
+    <div className="min-[370px]:w-[350px] min-[420px]:w-[390px] md:w-[480px] lg:w-[360px] xl:w-[600px]  rounded-lg shadow bg-gray-800 p-4 md:p-6">
+      <div className="flex justify-between border-b border-gray-700 pb-3">
         <dl>
-          <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
+          <dt className="text-base font-normal :text-gray-400 pb-1">
             Profit
           </dt>
-          <dd className="leading-none text-3xl font-bold text-gray-900 dark:text-white">
+          <dd className="leading-none text-3xl font-bold text-white">
             $5,405
           </dd>
         </dl>
         <div>
-          <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+          <span className=" text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md bg-green-900 text-green-300">
             <svg
               className="w-2.5 h-2.5 me-1.5"
               xmlns="http://www.w3.org/2000/svg"
@@ -114,18 +114,18 @@ const RevenueDashboard = () => {
       </div>
       <div className="grid grid-cols-2 py-3">
         <dl>
-          <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
+          <dt className="text-base font-normal text-gray-400 pb-1">
             Income
           </dt>
-          <dd className="leading-none text-xl font-bold text-green-500 dark:text-green-400">
+          <dd className="leading-none text-xl font-bold text-green-400">
             $23,635
           </dd>
         </dl>
         <dl>
-          <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
+          <dt className="text-base font-normal text-gray-400 pb-1">
             Expense
           </dt>
-          <dd className="leading-none text-xl font-bold text-red-600 dark:text-red-500">
+          <dd className="leading-none text-xl font-bold :text-red-500">
             -$18,230
           </dd>
         </dl>

@@ -14,6 +14,7 @@ const AddCategory = ({ onClose }) => {
       setPreviewUrl(preview);
     }
   };
+
   const handleAddCategory = () => {
     if (categoryName.trim() === "") {
       alert("Category name cannot be empty");
@@ -24,16 +25,16 @@ const AddCategory = ({ onClose }) => {
       return;
     }
     alert(`Category "${categoryName}" has been added!`);
-    onClose(); 
+    onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-20 bg-black bg-opacity-30 flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow-md p-6 w-[400px]">
-        <h2 className="text-xl font-bold mb-4">Add New Category</h2>
+    <div className="fixed inset-0 z-20 bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="bg-gray-800 rounded-lg shadow-md p-6 w-[400px]">
+        <h2 className="text-xl font-bold mb-4 text-white">Add New Category</h2>
 
         {/* File Upload */}
-        <div className="w-full py-6 bg-gray-50 rounded-2xl border border-gray-300 gap-3 grid border-dashed">
+        <div className="w-full py-6 bg-gray-700 rounded-2xl border border-gray-600 gap-3 grid border-dashed">
           {previewUrl ? (
             <img
               src={previewUrl}
@@ -43,7 +44,7 @@ const AddCategory = ({ onClose }) => {
           ) : (
             <div className="grid gap-1">
               <svg
-                className="mx-auto"
+                className="mx-auto text-indigo-500"
                 width="40"
                 height="40"
                 viewBox="0 0 40 40"
@@ -61,7 +62,7 @@ const AddCategory = ({ onClose }) => {
             </div>
           )}
           <div className="grid gap-2">
-            <h4 className="text-center text-gray-900 text-sm font-medium leading-snug">
+            <h4 className="text-center text-gray-300 text-sm font-medium leading-snug">
               Drag and Drop your file here or
             </h4>
             <div className="flex items-center justify-center">
@@ -77,13 +78,13 @@ const AddCategory = ({ onClose }) => {
 
         {/* Category Name */}
         <div>
-          <h3 className="text-lg font-medium py-2">Name Category:</h3>
+          <h3 className="text-lg font-medium py-2 text-white">Name Category:</h3>
           <input
             type="text"
             value={categoryName}
             onChange={(e) => setCategoryName(e.target.value)}
             placeholder="Enter category name"
-            className="w-full border border-gray-300 rounded p-2 mb-4"
+            className="w-full border border-gray-600 bg-gray-700 text-white rounded p-2 mb-4"
           />
         </div>
 
@@ -91,13 +92,13 @@ const AddCategory = ({ onClose }) => {
         <div className="flex justify-end">
           <button
             onClick={onClose}
-            className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded mr-2"
+            className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded mr-2"
           >
             Cancel
           </button>
           <button
             onClick={handleAddCategory}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
           >
             Add
           </button>
