@@ -13,7 +13,7 @@ const ListVoucher = () => {
         {
             id: 2,
             code: "WELCOME50",
-            discount: "$50",
+            discount: "50$",
             validUntil: "2024-02-28",
             minPurchase: 200,
             description: "New customer welcome discount"

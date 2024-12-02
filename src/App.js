@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AOS from 'aos';
 import "aos/dist/aos.css"
+import './App.css';
 import Home from './page/home/Home';
 import ProductDetail from './components/products/ProductDetail';
 import FilterProduct from './page/products/FilterProduct';
@@ -17,11 +18,12 @@ import Store from './page/store/home/Store';
 import DashboardStore from './page/store/dashboard/DashboardStore';
 import ProductManage from './page/store/products/ProductManage';
 import VoucherManage from './page/store/voucher/VoucherManage';
-import ChatStore from './page/store/chat/ChatStore';
 import BrandManage from './page/admin/brand/BrandManage';
 import AuthForm from './page/auth/AuthForm';
 import AnimatedBackground from './components/background/AnimatedBackground';
 import RestPassword from './components/password/RestPassword';
+import OrdersManage from './page/store/orders/OrdersManage';
+import AddProduct from './components/products/AddProduct';
 
 function App() {
   React.useEffect(() => {
@@ -50,10 +52,11 @@ function App() {
             <Route path="" element={<DashboardStore />} />
             <Route path="product" element={<ProductManage />} />
             <Route path="voucher" element={<VoucherManage />} />
-            <Route path="chat" element={<ChatStore />} />
+            <Route path="orders" element={<OrdersManage />} />
           </Route>
           <Route path="/restPassword" element={<RestPassword />} />
           <Route path="/auth" element={<AuthForm />} />
+          <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/background" element={<AnimatedBackground />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/product" element={<ProductDetail />} />
