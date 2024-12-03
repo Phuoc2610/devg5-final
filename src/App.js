@@ -24,6 +24,7 @@ import AnimatedBackground from './components/background/AnimatedBackground';
 import RestPassword from './components/password/RestPassword';
 import OrdersManage from './page/store/orders/OrdersManage';
 import AddProduct from './components/products/AddProduct';
+import OrderDetailsManage from './components/orders/OrderDetailsManage';
 
 function App() {
   React.useEffect(() => {
@@ -54,6 +55,7 @@ function App() {
             <Route path="voucher" element={<VoucherManage />} />
             <Route path="orders" element={<OrdersManage />} />
           </Route>
+          <Route path="/orderDetails" element={<OrderDetailsManage />} />
           <Route path="/restPassword" element={<RestPassword />} />
           <Route path="/auth" element={<AuthForm />} />
           <Route path="/addProduct" element={<AddProduct />} />

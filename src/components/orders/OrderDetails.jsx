@@ -1,4 +1,6 @@
 import React from 'react';
+import ShippingStatus from '../shipping/ShippingStatus';
+import { FaX } from "react-icons/fa6";
 
 const OrderDetails = ({ order, onClose }) => {
     return (
@@ -14,7 +16,7 @@ const OrderDetails = ({ order, onClose }) => {
                             onClick={onClose}
                             className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
                         >
-                            ×
+                            <FaX />
                         </button>
                     </div>
 
@@ -26,52 +28,8 @@ const OrderDetails = ({ order, onClose }) => {
 
                         <div>
                             <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-4">Order Timeline</h3>
-                            <div className="relative">
-                                <div className="absolute top-1/2 left-4 right-4 h-1 bg-gray-200 dark:bg-gray-600 -translate-y-1/2">
-                                    <div
-                                        className="h-full bg-blue-500 transition-all duration-500"
-                                        style={{ width: `${order.progress}%` }}
-                                    />
-                                </div>
-
-                                <div className="relative flex justify-between">
-                                    {order.timeline.map((item, index) => {
-                                        const Icon = item.icon;
-                                        return (
-                                            <div key={index} className="flex flex-col items-center">
-                                                <div
-                                                    className={`w-8 h-8 rounded-full flex items-center justify-center z-10 ${
-                                                        item.completed
-                                                            ? 'bg-blue-500'
-                                                            : 'bg-gray-200 dark:bg-gray-600'
-                                                    }`}
-                                                >
-                                                    <Icon
-                                                        className={`w-4 h-4 ${
-                                                            item.completed
-                                                                ? 'text-white'
-                                                                : 'text-gray-500 dark:text-gray-400'
-                                                        }`}
-                                                    />
-                                                </div>
-                                                <div className="mt-2 text-center">
-                                                    <p
-                                                        className={`text-sm font-medium ${
-                                                            item.completed
-                                                                ? 'text-blue-500'
-                                                                : 'text-gray-500 dark:text-gray-400'
-                                                        }`}
-                                                    >
-                                                        {item.status}
-                                                    </p>
-                                                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                                                        {item.date || 'Pending'}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
+                            <div >
+                                <ShippingStatus order={order} />
                             </div>
                         </div>
 

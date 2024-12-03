@@ -27,12 +27,12 @@ const ListFilter = () => {
 
     return (
         <>
-            <div className="md:hidden fixed bottom-4 right-2 z-50">
+            <div className="md:hidden fixed bottom-10 left-2 z-50">
                 <button
-                    className="p-[14px] bg-green-500 rounded-full text-white shadow-lg"
+                    className="p-[12px] bg-green-500 rounded-full text-white shadow-lg"
                     onClick={handleToggleModal}
                 >
-                    <FaFilter size={20} />
+                    <FaFilter size={22} />
                 </button>
             </div>
             {/* Modal hiển thị ListFilter */}

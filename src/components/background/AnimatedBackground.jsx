@@ -7,12 +7,12 @@ const AnimatedBackground = () => {
     const cameraRef = useRef(null);
     const rendererRef = useRef(null);
     const particlesRef = useRef(null);
-    const animationSpeedRef = useRef(1);
+    const animationSpeedRef = useRef(2);
 
     useEffect(() => {
         const initScene = () => {
             const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.51, 1000);
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true });
 
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -39,7 +39,7 @@ const AnimatedBackground = () => {
 
             geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
 
-            const material = new THREE.PointsMaterial({ color: 0xffffff, size: 2 });
+            const material = new THREE.PointsMaterial({ color: 0xffffff, size: 1.2 });
             const particles = new THREE.Points(geometry, material);
 
             sceneRef.current.add(particles);

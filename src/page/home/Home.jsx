@@ -6,6 +6,7 @@ import Blog from '../../components/blog/Blog';
 import Products from '../../components/products/Products';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Footer from '../../components/footer/Footer';
+import BackToTop from '../../components/backToTop/BackToTop';
 const Home = () => {
     return (
         <div className="w-full bg-white dark:bg-gray-900 dark:text-white  overflow-hidden">
@@ -17,7 +18,8 @@ const Home = () => {
             <Products itemsPerPage={4} />
             <Blog />
             <Footer />
-            <Sidebar />
+            {/* <Sidebar /> */}
+            <BackToTop/>
         </div>
     );
 }

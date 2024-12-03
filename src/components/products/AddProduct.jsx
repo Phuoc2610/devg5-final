@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FiUpload, FiPlus, FiTrash2, FiX, FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FiUpload, FiPlus, FiTrash2, FiX } from "react-icons/fi";
+import { FaX } from "react-icons/fa6";
 
 const AddProduct = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -189,10 +190,18 @@ const AddProduct = ({ onClose }) => {
     <div className="fixed top-0 inset-0 z-20 bg-black bg-opacity-50 py-6 px-4 sm:px-6 lg:px-8 overflow-auto">
       <div className="w-[50%] mx-auto">
         <form onSubmit={handleSubmit} className="bg-gray-900 shadow-md rounded-lg px-8 pt-4 pb-4">
-          <h2 className="text-2xl font-bold mb-2 text-white">Add New Product</h2>
+          <div className="mb-3 flex justify-between items-center">
+            <h2 className="text-2xl font-bold text-white">Add New Product</h2>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-200"
+            >
+              <FaX />
+            </button>
+          </div>
           {/* Name */}
           <div className="mb-3">
-            <label htmlFor="productName" className="block text-gray-400 text-sm font-bold mb-2">
+            <label htmlFor="productName" className="block text-gray-100 text-base font-medium mb-2">
               Product Name *
             </label>
             <input
@@ -201,7 +210,7 @@ const AddProduct = ({ onClose }) => {
               name="productName"
               value={formData.productName}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-gray-700 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               aria-label="Product Name"
             />
             {errors.productName && (
@@ -211,7 +220,7 @@ const AddProduct = ({ onClose }) => {
           {/* Category & Brand */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
             <div>
-              <label htmlFor="category" className="block text-gray-400 text-sm font-bold mb-2">
+              <label htmlFor="category" className="block text-gray-100 text-base font-medium mb-2">
                 Category *
               </label>
               <select
@@ -219,7 +228,7 @@ const AddProduct = ({ onClose }) => {
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-gray-700 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-label="Category"
               >
                 <option value="">Select Category</option>
@@ -232,7 +241,7 @@ const AddProduct = ({ onClose }) => {
               )}
             </div>
             <div>
-              <label htmlFor="brand" className="block text-gray-400 text-sm font-bold mb-2">
+              <label htmlFor="brand" className="block text-gray-100 text-base font-medium mb-2">
                 Brand *
               </label>
               <select
@@ -240,7 +249,7 @@ const AddProduct = ({ onClose }) => {
                 name="brand"
                 value={formData.brand}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-gray-700 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-label="Brand"
               >
                 <option value="">Select Brand</option>
@@ -255,7 +264,7 @@ const AddProduct = ({ onClose }) => {
           </div>
           {/* Description */}
           <div className="mb-3">
-            <label htmlFor="description" className="block text-gray-400 text-sm font-bold mb-2">
+            <label htmlFor="description" className="block text-gray-100 text-base font-medium mb-2">
               Description *
             </label>
             <textarea
@@ -263,8 +272,9 @@ const AddProduct = ({ onClose }) => {
               name="description"
               value={formData.description}
               onChange={handleInputChange}
+              placeholder="Description....."
               rows="4"
-              className="w-full px-3 py-2 bg-gray-700 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               aria-label="Description"
             />
             {errors.description && (
@@ -273,10 +283,10 @@ const AddProduct = ({ onClose }) => {
           </div>
           {/* Image */}
           <div className="mb-3">
-            <label className="block text-gray-400 text-sm font-bold mb-2">
+            <label className="block text-gray-100 text-base font-medium mb-2">
               Product Image *
             </label>
-            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 bg-gray-700 rounded-md">
+            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 bg-gray-700 border border-gray-600 rounded-md">
               <div className="space-y-1 text-center">
                 {preview ? (
                   <div className="relative">
@@ -325,7 +335,7 @@ const AddProduct = ({ onClose }) => {
           {/* Attribute */}
           <div className="mb-3">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-medium text-gray-100">Attribute</h3>
+              <h3 className="text-base font-medium text-gray-100">Attribute</h3>
               <button
                 type="button"
                 onClick={addAttribute}
@@ -335,68 +345,71 @@ const AddProduct = ({ onClose }) => {
               </button>
             </div>
             {formData.attributes.map((attribute, attributeIndex) => (
-              <div key={attributeIndex} className="mb-6 p-4 border border-gray-700 rounded-lg bg-gray-750">
-                <div className="flex gap-4 mb-4">
-                  <input
-                    type="text"
-                    placeholder="Attribute Name (e.g., Color)"
-                    value={attribute.name}
-                    disabled={attribute.values.length > 0}
-                    onChange={(e) => {
-                      const newAttributes = [...formData.attributes];
-                      newAttributes[attributeIndex].name = e.target.value;
-                      setFormData({ ...formData, attributes: newAttributes });
-                    }}
-                    className="w-48 md:flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeAttribute(attributeIndex)}
-                    className="p-2 text-red-400 hover:text-red-300"
-                  >
-                    <FiTrash2 size={20} />
-                  </button>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {attribute.values.map((value, valueIndex) => (
-                    <span
-                      key={valueIndex}
-                      className="inline-flex items-center px-3 py-1 bg-indigo-900 text-indigo-100 rounded-lg text-sm transition-all duration-200 hover:bg-indigo-800"
-                    >
-                      {value}
+              <div key={attributeIndex} className="mb-2">
+                <div className="flex items-center">
+                  <span className="text-white px-2">{attributeIndex + 1}</span>
+                  <div className="w-full p-4 border border-gray-700 rounded-lg">
+                    <div className="flex gap-4 mb-4">
+                      <input
+                        type="text"
+                        placeholder="Attribute Name (e.g., Color)"
+                        value={attribute.name}
+                        disabled={attribute.values.length > 0}
+                        onChange={(e) => {
+                          const newAttributes = [...formData.attributes];
+                          newAttributes[attributeIndex].name = e.target.value;
+                          setFormData({ ...formData, attributes: newAttributes });
+                        }}
+                        className="w-48 md:flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                      />
                       <button
                         type="button"
-                        onClick={() => removeValueFromAttribute(attributeIndex, valueIndex)}
-                        className="ml-2 text-indigo-300 hover:text-indigo-200 focus:outline-none"
+                        onClick={() => removeAttribute(attributeIndex)}
+                        className="p-2 text-red-400 hover:text-red-300"
                       >
-                        <FiX size={14} />
+                        <FiTrash2 size={20} />
                       </button>
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Add new value"
-                    value={attributeInputValues[attributeIndex] || ""}
-                    onChange={(e) => handleAttributeInputChange(attributeIndex, e.target.value)}
-                    onKeyPress={(e) => {
-                      if (e.key === "Enter") {
-                        e.preventDefault();
-                        addValueToAttribute(attributeIndex);
-                      }
-                    }}
-                    className="w-44 md:flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => addValueToAttribute(attributeIndex)}
-                    className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    Add
-                  </button>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {attribute.values.map((value, valueIndex) => (
+                        <span
+                          key={valueIndex}
+                          className="inline-flex items-center px-3 py-1 bg-indigo-900 text-indigo-100 rounded-lg text-sm transition-all duration-200 hover:bg-indigo-800"
+                        >
+                          {value}
+                          <button
+                            type="button"
+                            onClick={() => removeValueFromAttribute(attributeIndex, valueIndex)}
+                            className="ml-2 text-indigo-300 hover:text-indigo-200 focus:outline-none"
+                          >
+                            <FiX size={14} />
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="Add new value"
+                        value={attributeInputValues[attributeIndex] || ""}
+                        onChange={(e) => handleAttributeInputChange(attributeIndex, e.target.value)}
+                        onKeyPress={(e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            addValueToAttribute(attributeIndex);
+                          }
+                        }}
+                        className="w-44 md:flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => addValueToAttribute(attributeIndex)}
+                        className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -404,49 +417,52 @@ const AddProduct = ({ onClose }) => {
           {/* Variants */}
           {formData.variants.length > 0 && (
             <div className="mb-3">
-              <h3 className="text-lg font-medium mb-4 text-gray-100">Variants</h3>
+              <h3 className="text-base font-medium mb-4 text-gray-100">Variants</h3>
               <div className="space-y-4">
                 {formData.variants.map((variant, index) => (
-                  <div key={index} className="p-4 bg-gray-750 border border-gray-700 rounded-lg">
-                    <div className="md:flex md:justify-between gap-3">
-                      <div className="max-md:mb-4 flex flex-wrap gap-2">
-                        {variant.attributeDetails.map((detail, detailIndex) => (
-                          <span key={detailIndex} className="inline-flex items-center px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm">
-                            <span className="font-medium text-indigo-400">{detail.name}:</span>
-                            <span className="ml-2">{detail.value}</span>
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex gap-4 items-center">
-                        <input
-                          type="number"
-                          placeholder="Price"
-                          value={variant.price}
-                          onChange={(e) => {
-                            const newVariants = [...formData.variants];
-                            newVariants[index].price = e.target.value;
-                            setFormData({ ...formData, variants: newVariants });
-                          }}
-                          className="w-20 px-2 md:w-28 md:px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400 appearance-none"
-                        />
-                        <input
-                          type="number"
-                          placeholder="Quantity"
-                          value={variant.quantity}
-                          onChange={(e) => {
-                            const newVariants = [...formData.variants];
-                            newVariants[index].quantity = e.target.value;
-                            setFormData({ ...formData, variants: newVariants });
-                          }}
-                          className="w-20 px-2 md:w-28 md:px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => removeVariant(index)}
-                          className="p-2 text-red-400 hover:text-red-300 focus:outline-none ml-auto"
-                        >
-                          <FiTrash2 size={20} />
-                        </button>
+                  <div key={index} className="flex items-center">
+                    <span className="text-white px-2">{index + 1}</span>
+                    <div className="w-full p-4 bg-gray-750 border border-gray-700 rounded-lg">
+                      <div className="md:flex md:justify-between gap-3">
+                        <div className="max-md:mb-4 flex flex-wrap gap-2">
+                          {variant.attributeDetails.map((detail, detailIndex) => (
+                            <span key={detailIndex} className="inline-flex items-center px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm">
+                              <span className="font-medium text-indigo-400">{detail.name}:</span>
+                              <span className="ml-2">{detail.value}</span>
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex gap-4 items-center">
+                          <input
+                            type="number"
+                            placeholder="Price"
+                            value={variant.price}
+                            onChange={(e) => {
+                              const newVariants = [...formData.variants];
+                              newVariants[index].price = e.target.value;
+                              setFormData({ ...formData, variants: newVariants });
+                            }}
+                            className="w-20 px-2 md:w-28 md:px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400 appearance-none"
+                          />
+                          <input
+                            type="number"
+                            placeholder="Quantity"
+                            value={variant.quantity}
+                            onChange={(e) => {
+                              const newVariants = [...formData.variants];
+                              newVariants[index].quantity = e.target.value;
+                              setFormData({ ...formData, variants: newVariants });
+                            }}
+                            className="w-20 px-2 md:w-28 md:px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-100 placeholder-gray-400"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeVariant(index)}
+                            className="p-2 text-red-400 hover:text-red-300 focus:outline-none ml-auto"
+                          >
+                            <FiTrash2 size={20} />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -454,7 +470,6 @@ const AddProduct = ({ onClose }) => {
               </div>
             </div>
           )}
-          
           {/* Button */}
           <div className="flex justify-end">
             <button
