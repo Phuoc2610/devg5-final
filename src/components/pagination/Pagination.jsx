@@ -30,7 +30,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <nav>
             <ul
                 data-aos="fade-up"
-                data-aos-delay="250"
                 className="flex items-center justify-center -space-x-px mt-4 text-base">
                 {currentPage > 1 && (
                     <li>

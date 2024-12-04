@@ -29,7 +29,7 @@ const Navbar = ({ backgroundClass }) => {
                         />
                     </svg>
                 </button>
-                <div className="hidden md:block ">
+                <div className="hidden md:block">
                     <ul className="flex items-center gap-5 p-4">
                         <li>
                             <a href="/#" className="inline-block font-semibold text-gray-500 hover:text-black dark:hover:text-white duration-200">

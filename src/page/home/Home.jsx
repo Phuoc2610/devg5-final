@@ -18,7 +18,7 @@ const Home = () => {
             <Products itemsPerPage={4} />
             <Blog />
             <Footer />
-            {/* <Sidebar /> */}
+            <Sidebar />
             <BackToTop/>
         </div>
     );

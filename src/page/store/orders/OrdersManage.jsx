@@ -286,7 +286,7 @@ const OrdersManage = () => {
         { status: "Out for Delivery", date: "", icon: FiTruck, completed: false },
         { status: "Delivered", date: "", icon: FiHome, completed: false }
       ]
-    }
+    },
   ];
 
 
