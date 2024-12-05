@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { BsCartXFill } from "react-icons/bs";
 import Stepper from "../../components/stepper/Stepper";
 import CartItem from "../../components/cart/CartItem";
 import CartSummary from "../../components/cart/CartSummary";
@@ -102,7 +103,7 @@ const ShoppingCart = () => {
                     </div>
                 </>
             )}
-            <div className="bg-gray-100 dark:bg-gray-900 py-6 px-4 sm:px-6 lg:px-8">
+            <div className="h-94v bg-gray-100 dark:bg-gray-900 py-6 px-4 sm:px-6 lg:px-8">
                 <div className=" max-w-7xl mx-auto">
                     {(currentStep === 0 || currentStep === 1) && (
                         <>
@@ -123,8 +124,11 @@ const ShoppingCart = () => {
                                         />
                                     ))}
                                     {items.length === 0 && (
-                                        <div className="text-center py-8 text-gray-400 h-66v">
-                                            Your cart is empty
+                                        <div className="flex flex-col justify-center items-center h-full text-center py-8 text-gray-400 ">
+                                            <BsCartXFill size={100} />
+                                            <h2 className="text-2xl py-2">
+                                                Your cart is empty
+                                            </h2>
                                         </div>
                                     )}
                                 </>
@@ -148,7 +152,7 @@ const ShoppingCart = () => {
                                         discount={appliedVoucher?.discount}
                                         discountPercentage={appliedVoucher?.discountPercentage}
                                     />
-                                    <button onClick={() => setCurrentStep(1)}className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <button onClick={() => setCurrentStep(1)} className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         Checkout
                                     </button>
                                 </>
